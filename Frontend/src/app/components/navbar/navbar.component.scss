@@ -1,0 +1,36 @@
+.my-button-container {
+    width: 10px;
+    margin-top: -33px;
+    margin-left: 1270px;
+    margin-right: auto;
+    background-color: gree;
+
+    button {
+      margin: 10px;
+    }
+  }
+
+  .dropdownn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  
+    .avatar {
+      img {
+        height: 30px;
+        width: 30px;
+        // border-style: solid;
+        // margin-right: 5px;
+      }
+    }
+  }
+
+  .dropdown-menu{
+    margin-left: -100px;
+    padding: 0px;
+  }
+
+  .searchBar{
+    margin-left: 900px;
+    margin-top: -35px;
+  }

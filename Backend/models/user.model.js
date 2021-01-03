@@ -19,20 +19,8 @@ var userSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
-  nicNumber: {
-    type: String,
-  },
-  nicFrontImage: {
-    type: String,
-  },
-  nicBackImage: {
-    type: String,
-  },
   userType: {
-    type: Number,
-  },
-  status: {
-    type: Number,
+    type: String,
   },
   password: {
     type: String,

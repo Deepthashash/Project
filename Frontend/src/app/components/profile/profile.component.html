@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 class="text-center mt-5 mb-2">Profile</h1>
+  <div class="user-details">
+    <div class="profile-picture">
+      <!-- <img [src]="user.profilePicture" alt="" /> -->
+    </div>
+    <div class="item">
+      <div class="title">First Name:</div>
+      <div class="value">
+        {{ user.firstName }}
+      </div>
+    </div>
+    <div class="item">
+      <div class="title">Last Name:</div>
+      <div class="value">
+        {{ user.lastName }}
+      </div>
+    </div>
+    <div class="item">
+      <div class="title">Mobile Number:</div>
+      <div class="value">
+        {{ user.mobileNumber }}
+      </div>
+    </div>
+    <div class="item">
+      <div class="title">Email:</div>
+      <div class="value">
+        {{ user.email }}
+      </div>
+    </div>
+    </div>
+  <button class="btn btn-primary float-right m-5" routerLink="/editprofile">
+    Edit Profile
+  </button>
+</div>

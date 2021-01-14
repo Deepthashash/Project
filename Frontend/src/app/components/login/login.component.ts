@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +10,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  LoginForm = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+  });
+
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private authService: AuthService) { }
+
+    tryLogin(formData): void {
+      const x = this.authService.login(formData);
+      console.log(x);
+      x.then(
+        (res) => {
+          console.log(res);
+          if (res.status) {
+            // this.errorMessage = 'temp';
+            // this.router.navigate(['/home']);
+            console.log('success');
+          } else {
+            // this.errorMessage = res.error;
+            console.log('error');
+          }
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
+
+    getC(){
+      console.log(this.authService.getCurrentUser());
+    }
 
   ngOnInit(): void {
   }

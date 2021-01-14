@@ -7,17 +7,17 @@
  <div class="main">
     <div class="col-md-6 col-sm-12">
        <div class="login-form">
-          <form>
+          <form [formGroup]="LoginForm">
              <div class="form-group">
-                <label>User Name</label>
-                <input type="text" class="form-control" placeholder="User Name">
+                <label>Email</label>
+                <input type="text" class="form-control" placeholder="User Name" formControlName="email">
              </div>
              <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" formControlName="password">
              </div>             
-             <button type="submit" class="btn btn-primary" style="margin-right: 5px;">Login</button>
-             <button type="submit" class="btn btn-info">Forgot Password</button>
+             <button type="submit" class="btn btn-primary" style="margin-right: 5px;" (click)="tryLogin(LoginForm.value)">Login</button>
+             <button type="submit" class="btn btn-info" (click)="getC()">Forgot Password</button>
           </form>
        </div>
     </div>

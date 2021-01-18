@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Add Task</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="TaskAddForm">
+        <div class="form-group">
+           <label>Task Name</label>
+           <input type="text" class="form-control" placeholder="Task Name" formControlName="taskName">
+        </div>
+        <div class="form-group">
+           <label>Password</label>
+           <textarea rows="5" class="form-control" placeholder="Description" formControlName="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Target User</label>
+            <select class="form-control" formControlName="order" id="orders">
+                <option *ngFor="let order of orders; let i = index" [value]="orders[i].id">
+                  {{orders[i].name}}
+                </option>
+              </select> 
+        </div> 
+        <div class="form-group">
+            <label>Start Date</label>
+            <input class="form-control" type="date" formControlName="startDate">
+        </div>
+        <div class="form-group">
+            <label>End Date</label>
+            <input class="form-control" type="date" formControlName="endDate">
+        </div>            
+        <!-- <button type="submit" class="btn btn-primary" style="margin-right: 5px;" (click)="tryLogin(LoginForm.value)">Login</button> -->
+        <button [disabled]="TaskAddForm.invalid" type="submit" class="btn btn-info" (click)="submit(TaskAddForm.value)">Submit</button>
+     </form>
+ 
+</mat-dialog-content>

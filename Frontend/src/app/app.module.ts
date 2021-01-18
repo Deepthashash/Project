@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import {MatDialogModule} from "@angular/material/dialog";
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -13,6 +15,10 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthService } from './services/auth.service';
 import { Block1Component } from './components/block1/block1.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddComponent } from './components/tasks/add/add.component';
+import { AdminComponent } from './components/admin/admin.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +28,9 @@ import { Block1Component } from './components/block1/block1.component';
     FooterComponent,
     LoginComponent,
     ProfileComponent,
-    Block1Component
+    Block1Component,
+    AddComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,9 @@ import { Block1Component } from './components/block1/block1.component';
     IvyCarouselModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
     AuthService,
@@ -39,6 +49,7 @@ import { Block1Component } from './components/block1/block1.component';
       useClass: AuthService,
       multi: true,
     },],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddComponent]
 })
 export class AppModule { }

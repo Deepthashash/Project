@@ -18,6 +18,7 @@ import { Block1Component } from './components/block1/block1.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddComponent } from './components/tasks/add/add.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ViewComponent } from './components/tasks/view/view.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AdminComponent } from './components/admin/admin.component';
     ProfileComponent,
     Block1Component,
     AddComponent,
-    AdminComponent
+    AdminComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,

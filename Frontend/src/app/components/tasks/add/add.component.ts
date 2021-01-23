@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { TaskService } from "../../../services/task.service"
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
 
@@ -13,13 +15,15 @@ export class AddComponent implements OnInit {
   TaskAddForm = this.formBuilder.group({
     taskName: ['', [Validators.required]],
     description: ['', [Validators.required]],
-    order: ['', [Validators.required]],
+    userId: ['', [Validators.required]],
     startDate: ['', [Validators.required]],
     endDate: ['', [Validators.required]]
   });
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private taskService: TaskService,
+    private dialogRef: MatDialogRef<AddComponent>
     ) { }
 
   ngOnInit(): void {
@@ -28,16 +32,34 @@ export class AddComponent implements OnInit {
 
   getUsers(){
     return [
-      { id: '1', name: 'order 1' },
-      { id: '2', name: 'order 2' },
-      { id: '3', name: 'order 3' },
-      { id: '4', name: 'order 4' }
+      { id: '1', name: 'User 1' },
+      { id: '2', name: 'User 2' },
+      { id: '3', name: 'User 3' },
+      { id: '4', name: 'User 4' }
     ];
   }
 
   submit(formData){
-    var date = new Date(formData.startDate).getTime();
-    console.log(date);
+    const formDetails = {
+      ...formData,
+      startDate: new Date(formData.startDate).getTime(),
+      endDate: new Date(formData.endDate).getTime(),      
+      isCompleted: false,
+      isApproved: false
+    }
+    console.log(formDetails);
+    this.taskService.postTask(formDetails).then(
+      (res) => {
+        console.log("Success");
+        location.reload();
+      },
+      (err) => {
+
+      }
+    );
   }
 
+  close(){
+    this.dialogRef.close();
+  }
 }

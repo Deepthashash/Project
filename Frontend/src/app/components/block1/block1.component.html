@@ -58,46 +58,13 @@
         <div class="todo-container">
             <h2 style=" font-weight: bold; color: #0275d8;">Todos</h2>
             <div class="container cards">
-                <div class="card text-white bg-primary todoCard" (click)="sayHello()">
-                    <div class="card-body" style="padding-top: 4% !important;">
-                        <li class="card-title">Kil the switch</li>
-                      </div>
-                </div>
-                <div class="card text-white bg-primary todoCard">
-                    <div class="card-body" style="padding-top: 4% !important;">
-                        <li class="card-title">Kil the switch</li>
-                      </div>
-                </div>
-                <div class="card text-white bg-primary todoCard">
-                    <div class="card-body" style="padding-top: 4% !important;">
-                        <li class="card-title">Kil the switch</li>
-                      </div>
-                </div>
-                <div class="card text-white bg-primary todoCard">
-                    <div class="card-body" style="padding-top: 4% !important;">
-                        <li class="card-title">Kil the switch</li>
-                      </div>
-                </div>
-                <div class="card text-white bg-primary todoCard">
-                    <div class="card-body" style="padding-top: 4% !important;">
-                        <li class="card-title">Kil the switch</li>
-                      </div>
-                </div>
-                <div class="card text-white bg-primary todoCard">
-                    <div class="card-body" style="padding-top: 4% !important;">
-                        <li class="card-title">Kil the switch</li>
-                      </div>
-                </div>
-                <div class="card text-white bg-primary todoCard">
-                    <div class="card-body" style="padding-top: 4% !important;">
-                        <li class="card-title">Kil the switch</li>
-                      </div>
-                </div>
-                <div class="card text-white bg-primary todoCard">
-                    <div class="card-body" style="padding-top: 4% !important;">
-                        <li class="card-title">Kil the switch</li>
-                      </div>
-                </div>
+                <div *ngFor="let task of tasks; index as i;">
+                    <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
+                        <div class="card-body" style="padding-top: 4% !important;">
+                            <li class="card-title">{{task.taskName}}</li> &nbsp;<p *ngIf="task.isCompleted">Approval pending</p>
+                          </div>
+                    </div> 
+                </div>               
             </div>
         </div>
         <div class="comments-container">

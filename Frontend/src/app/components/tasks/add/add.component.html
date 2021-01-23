@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
             <label>Target User</label>
-            <select class="form-control" formControlName="order" id="orders">
+            <select class="form-control" formControlName="userId" id="userId">
                 <option *ngFor="let order of orders; let i = index" [value]="orders[i].id">
                   {{orders[i].name}}
                 </option>
@@ -25,9 +25,12 @@
         <div class="form-group">
             <label>End Date</label>
             <input class="form-control" type="date" formControlName="endDate">
-        </div>            
-        <!-- <button type="submit" class="btn btn-primary" style="margin-right: 5px;" (click)="tryLogin(LoginForm.value)">Login</button> -->
-        <button [disabled]="TaskAddForm.invalid" type="submit" class="btn btn-info" (click)="submit(TaskAddForm.value)">Submit</button>
+        </div>  
+        <div class="button-container">
+            <button [disabled]="TaskAddForm.invalid" type="submit" class="btn btn-info" (click)="submit(TaskAddForm.value)">Submit</button>
+            <button style="margin-left: 2px;" type="submit" class="btn btn-danger" (click)="close()">Close</button>
+        </div>          
+
      </form>
  
 </mat-dialog-content>

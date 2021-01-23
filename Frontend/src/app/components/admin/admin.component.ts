@@ -15,10 +15,7 @@ export class AdminComponent implements OnInit {
   }
 
   openDialog() {
-
     const dialogConfig = new MatDialogConfig();
-
-    // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "50%";
     this.dialog.open(AddComponent, dialogConfig);

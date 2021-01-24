@@ -1,0 +1,26 @@
+<div class="main-container">
+    <table>
+        <th>Task Name</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Assigned User</th>
+        <th>Status</th>
+        <th>Action</th>
+        <tr *ngFor="let task of tasks; index as i;">
+            <td>{{task.taskName}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.startDate}}</td>
+            <td>{{task.startDate}}</td>
+            <td>{{task.userId}}</td>
+            <td>
+                <div *ngIf="task.isApproved; else elseBlock">Approved</div>                
+                <ng-template #elseBlock>
+                    <div *ngIf="task.isCompleted; else elseBlock">Approval pending</div>  
+                    <ng-template #elseBlock>On Going</ng-template>
+                </ng-template>
+            </td>
+            <td><button [disabled]="checkStatus(task)" class="btn btn-success" (click)="approve(task._id)" >Approve</button></td>
+        </tr>
+    </table>
+</div>

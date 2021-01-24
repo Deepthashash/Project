@@ -60,8 +60,8 @@
             <div class="container cards">
                 <div *ngFor="let task of tasks; index as i;">
                     <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
-                        <div class="card-body" style="padding-top: 4% !important;">
-                            <li class="card-title">{{task.taskName}}</li> &nbsp;<p *ngIf="task.isCompleted">Approval pending</p>
+                        <div class="card-body" style="padding: 1.8% !important;display: flex;">
+                            <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.taskName}}</li> &nbsp;<p class="pending" *ngIf="task.isCompleted">Approval pending</p>
                           </div>
                     </div> 
                 </div>               

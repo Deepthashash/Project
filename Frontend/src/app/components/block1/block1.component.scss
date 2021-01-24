@@ -81,8 +81,16 @@
                 height: 80%;     
                 
                 .todoCard{
-                    height: 20%;
-                    margin: 2%;
+                    height: 50px;
+                    margin: 1%;
+
+                    .pending {
+                        position: absolute;
+                        margin-left: 82%;
+                        margin-right: auto;
+                        color: #fa9907;
+                        font-weight: 1000;
+                    }
                 }
             }
         }

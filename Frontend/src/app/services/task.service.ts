@@ -16,6 +16,7 @@ export class TaskService {
   private getAllTasksPerUser_url = 'http://localhost:3000/api/getAllTasksPerUser';
   private getUnapprovedTasksPerUser_url = 'http://localhost:3000/api/getUnapprovedTasksPerUser';
   private updateAsCompleted_url = 'http://localhost:3000/api/updateAsCompleted';
+  private updateAsApproved_url = 'http://localhost:3000/api/updateAsApproved';
 
   constructor(private http: HttpClient) { }
 
@@ -50,6 +51,12 @@ export class TaskService {
   updateAsCompleted(id: string): Promise<Task> {
     return this.http
       .put<any>(this.updateAsCompleted_url, { id })
+      .toPromise();
+  }
+
+  updateAsApproved(id: string): Promise<Task> {
+    return this.http
+      .put<any>(this.updateAsApproved_url, { id })
       .toPromise();
   }
 }

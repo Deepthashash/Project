@@ -4,7 +4,9 @@ export class Task {
     description: string;
     startDate: number;
     endDate: number;
-    userId: string;
+    userId1: string;
+    userId2: string;
+    userId3: string;
     isCompleted: boolean;
     isApproved: boolean
   }

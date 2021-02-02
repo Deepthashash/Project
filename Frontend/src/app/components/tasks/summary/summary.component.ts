@@ -31,7 +31,9 @@ export class SummaryComponent implements OnInit {
         description: element.description,
         startDate: new Date(element.startDate).toLocaleDateString(),
         endDate: new Date(element.endDate).toLocaleDateString(),
-        userId: element.userId,
+        userId1: element.userId1,
+        userId2: element.userId2,
+        userId3: element.userId3,
         isCompleted: element.isCompleted,
         isApproved: element.isApproved
       }

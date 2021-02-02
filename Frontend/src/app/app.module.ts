@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import {MatDialogModule} from "@angular/material/dialog";
 
@@ -20,6 +23,8 @@ import { AddComponent } from './components/tasks/add/add.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ViewComponent } from './components/tasks/view/view.component';
 import { SummaryComponent } from './components/tasks/summary/summary.component';
+import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 
 @NgModule({
@@ -34,7 +39,9 @@ import { SummaryComponent } from './components/tasks/summary/summary.component';
     AddComponent,
     AdminComponent,
     ViewComponent,
-    SummaryComponent
+    SummaryComponent,
+    ImageUploaderComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,9 @@ import { SummaryComponent } from './components/tasks/summary/summary.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
   ],
   providers: [
     AuthService,

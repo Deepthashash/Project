@@ -56,15 +56,29 @@
     </div>
     <div class="other-container">
         <div class="todo-container">
-            <h2 style=" font-weight: bold; color: #0275d8;">Todos</h2>
-            <div class="container cards">
-                <div *ngFor="let task of tasks; index as i;">
-                    <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
-                        <div class="card-body" style="padding: 1.8% !important;display: flex;">
-                            <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.taskName}}</li> &nbsp;<p class="pending" *ngIf="task.isCompleted">Approval pending</p>
-                          </div>
-                    </div> 
-                </div>               
+            <div class="todo">
+                <h2 style=" font-weight: bold; color: #0275d8;">Todos</h2>
+                <div class="container cards">
+                    <div *ngFor="let task of onGoing; index as i;">
+                        <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
+                            <div class="card-body" style="padding: 1.8% !important;display: flex;">
+                                <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.taskName}}</li> &nbsp;<p class="pending" *ngIf="task.isCompleted">Approval pending</p>
+                              </div>
+                        </div> 
+                    </div>               
+                </div>
+            </div>
+            <div class="completed">
+                <h2 style=" font-weight: bold; color: #0275d8;">Completed</h2>
+                <div class="container cards">
+                    <div *ngFor="let task of completed; index as i;">
+                        <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
+                            <div class="card-body" style="padding: 1.8% !important;display: flex;">
+                                <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.taskName}}</li>
+                              </div>
+                        </div> 
+                    </div>               
+                </div>
             </div>
         </div>
         <div class="comments-container">

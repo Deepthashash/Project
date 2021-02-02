@@ -15,7 +15,9 @@ export class AddComponent implements OnInit {
   TaskAddForm = this.formBuilder.group({
     taskName: ['', [Validators.required]],
     description: ['', [Validators.required]],
-    userId: ['', [Validators.required]],
+    userId1: ['', [Validators.required]],
+    userId2: [''],
+    userId3: [''],
     startDate: ['', [Validators.required]],
     endDate: ['', [Validators.required]]
   });

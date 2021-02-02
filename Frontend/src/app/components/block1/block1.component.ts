@@ -16,12 +16,15 @@ export class Block1Component implements OnInit {
     private dialog: MatDialog
     ) { }
   tasks = [];
+  onGoing = [];
+  completed = [];
 
   showDetails(id){
+        var isBlock = true;
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.width = "50%";
-        dialogConfig.data ={id}
+        dialogConfig.data ={id,isBlock}
         this.dialog.open(ViewComponent, dialogConfig);
   }
 
@@ -30,11 +33,22 @@ export class Block1Component implements OnInit {
       (result) => {
         this.tasks = result;
         console.log(this.tasks);
+        this.separate(this.tasks);
       },
       (error) => {
 
       }
     )
+  }
+
+  separate(tasks: Task[]){
+    tasks.forEach(element => {
+      if(element.isApproved){
+        this.completed.push(element);
+      }else{
+        this.onGoing.push(element);
+      }
+    })
   }
 
 }

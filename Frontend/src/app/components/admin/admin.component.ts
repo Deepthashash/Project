@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { AddComponent } from '../tasks/add/add.component';
+import { RegisterUserComponent } from '../register-user/register-user.component';
 
 @Component({
   selector: 'app-admin',
@@ -19,6 +20,14 @@ export class AdminComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "50%";
     this.dialog.open(AddComponent, dialogConfig);
-}
+  }
+
+  openRegister() {
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    this.dialog.open(RegisterUserComponent, dialogConfig);
+  }
 
 }

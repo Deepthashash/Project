@@ -4,7 +4,9 @@
         <th>Description</th>
         <th>Start Date</th>
         <th>End Date</th>
-        <th>Assigned User</th>
+        <th>Assigned User 01</th>
+        <th>Assigned User 02</th>
+        <th>Assigned User 03</th>
         <th>Status</th>
         <th>Action</th>
         <tr *ngFor="let task of tasks; index as i;">
@@ -12,7 +14,9 @@
             <td>{{task.description}}</td>
             <td>{{task.startDate}}</td>
             <td>{{task.startDate}}</td>
-            <td>{{task.userId}}</td>
+            <td>{{task.userId1}}</td>
+            <td>{{task.userId2}}</td>
+            <td>{{task.userId3}}</td>
             <td>
                 <div *ngIf="task.isApproved; else elseBlock">Approved</div>                
                 <ng-template #elseBlock>

@@ -16,9 +16,21 @@
         <div class="form-group">
             <label>End Date</label>
             <input class="form-control" type="text" disabled="true" value="{{endDate}}">
-        </div>  
+        </div>
+        <!-- <div class="form-group" *ngIf="userId1 != null">
+            <label>User 01</label>
+            <input class="form-control" type="text" disabled="true" value="{{task.userId1}}">
+        </div>
+        <div class="form-group" *ngIf="userId2 != null">
+            <label>User 02</label>
+            <input class="form-control" type="text" disabled="true" value="{{task.userId2}}">
+        </div>
+        <div class="form-group" *ngIf="userId3 != null">
+            <label>User 03</label>
+            <input class="form-control" type="text" disabled="true" value="{{task.userId3}}">
+        </div>   -->
         <div class="button-container">
-            <button type="submit" class="btn btn-success" (click)="update()">Mark Complete</button>
+            <button *ngIf="!isBlock" type="submit" class="btn btn-success" (click)="update()">Mark Complete</button>
             <button style="margin-left: 2px;" type="submit" class="btn btn-danger" (click)="close()">Close</button>
         </div>          
 

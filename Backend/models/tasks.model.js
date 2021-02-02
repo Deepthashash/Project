@@ -5,7 +5,15 @@ var tasksSchema = new mongoose.Schema({
     description:{type:String},
     startDate:{type:Number},
     endDate:{type:Number},
-    userId:{type:String},
+    userId1:{type:String},
+    userId2:{
+        type:String,
+        default: null
+    },
+    userId3:{
+        type:String,
+        default: null
+    },
     isCompleted:{type:Boolean},
     isApproved:{type:Boolean}
 });

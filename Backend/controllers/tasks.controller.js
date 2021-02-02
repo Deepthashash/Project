@@ -7,7 +7,9 @@ module.exports.insertTask = (req, res) => {
         description:req.body.description,
         startDate:req.body.startDate,
         endDate:req.body.endDate,
-        userId:req.body.userId,
+        userId1:req.body.userId1,
+        userId2:req.body.userId2,
+        userId3:req.body.userId3,
         isCompleted:req.body.isCompleted,
         isApproved:req.body.isApproved
     });
@@ -42,7 +44,7 @@ module.exports.insertTask = (req, res) => {
   };
 
   module.exports.getAllTasksPerUser = (req,res) => {
-      Tasks.find({userId: req.body.userId}, (err,docs) => {
+      Tasks.find({$or:[{userId1: req.body.userId},{userId2: req.body.userId},{userId3: req.body.userId}]}, (err,docs) => {
         if(!err){
             res.send(docs);
         } else {
@@ -52,7 +54,7 @@ module.exports.insertTask = (req, res) => {
   };
 
   module.exports.getUnapprovedTasksPerUser = (req,res) => {
-    Tasks.find({userId: req.body.userId},{isApproved:false}, (err,docs) => {
+    Tasks.find({$or:[{userId1: req.body.userId},{userId2: req.body.userId},{userId3: req.body.userId}]},{isApproved:false}, (err,docs) => {
       if(!err){
           res.send(docs);
       } else {
@@ -69,4 +71,14 @@ module.exports.updateAsCompleted = (req,res) => {
         res.send("Error in retrieving: " + JSON.stringify(err, undefined, 2));
       } 
     });
+};
+
+module.exports.updateAsApproved = (req,res) => {
+  Tasks.findByIdAndUpdate(req.body.id,{isApproved:true},{new:true}, (err,docs) => {
+    if(!err){
+        res.send(docs);
+    } else {
+      res.send("Error in retrieving: " + JSON.stringify(err, undefined, 2));
+    } 
+  });
 };

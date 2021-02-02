@@ -21,5 +21,6 @@ router.post("/getTaskById", ctrlTasks.getTaskById);
 router.post("/getAllTasksPerUser", ctrlTasks.getAllTasksPerUser);
 router.post("/getUnapprovedTasksPerUser", ctrlTasks.getUnapprovedTasksPerUser);
 router.put("/updateAsCompleted", ctrlTasks.updateAsCompleted);
+router.put("/updateAsApproved", ctrlTasks.updateAsApproved);
 
 module.exports = router;

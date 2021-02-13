@@ -71,3 +71,30 @@ module.exports.getUsers = (req, res) => {
   });
 };
 
+module.exports.getAllUsers = (req, res) => {
+  User.find({}, (err, docs) => {
+    if (!err) {
+      res.send(docs);
+    } else {
+      res.send("Error in retrieving: " + JSON.stringify(err, undefined, 2));
+    }
+  });
+};
+
+module.exports.updateUser = (req,res) => {
+  User.findByIdAndUpdate(req.body.id,
+    {
+      profilePicture : req.body.profilePicture,
+      firstName : req.body.firstName,
+      lastName : req.body.lastName,
+      mobileNumber : req.body.mobileNumber,
+    },
+    {new:true}, (err,docs) => {
+    if(!err){
+        res.send(docs);
+    } else {
+      res.send("Error in retrieving: " + JSON.stringify(err, undefined, 2));
+    } 
+  });
+};
+

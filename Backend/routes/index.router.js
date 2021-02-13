@@ -13,6 +13,9 @@ router.post("/authenticateUser", ctrlUser.authenticate);
 router.get("/getCurrentUser",jwtHelper.verifyJwtToken,ctrlUser.getCurrentUser);
 router.post("/getUser", jwtHelper.verifyJwtToken, ctrlUser.getUser);
 router.post("/getUsers", jwtHelper.verifyJwtToken, ctrlUser.getUsers);
+router.get("/getAllUsers", ctrlUser.getAllUsers);
+router.put("/updateUser", ctrlUser.updateUser);
+
 
 //TASKS CONTROLLERS
 router.post("/insertTask", ctrlTasks.insertTask);

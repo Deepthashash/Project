@@ -25,6 +25,7 @@ import { ViewComponent } from './components/tasks/view/view.component';
 import { SummaryComponent } from './components/tasks/summary/summary.component';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { RegisterUserComponent } from './components/register-user/register-user.
     ViewComponent,
     SummaryComponent,
     ImageUploaderComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

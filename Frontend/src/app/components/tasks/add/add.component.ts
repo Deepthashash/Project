@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { AuthService } from 'src/app/services/auth.service';
 import { TaskService } from "../../../services/task.service"
 
 @Component({
@@ -10,7 +11,7 @@ import { TaskService } from "../../../services/task.service"
 })
 export class AddComponent implements OnInit {
 
-  orders = [];
+  users = [];
 
   TaskAddForm = this.formBuilder.group({
     taskName: ['', [Validators.required]],
@@ -25,14 +26,23 @@ export class AddComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private taskService: TaskService,
+    private authService: AuthService,
     private dialogRef: MatDialogRef<AddComponent>
     ) { }
 
   ngOnInit(): void {
-    this.orders = this.getUsers();
+    this.authService.getAllUsers().then(
+      (results) => {
+        this.users = results;
+      },
+      (err) => {
+
+      }
+    )
   }
 
   getUsers(){
+    
     return [
       { id: '1', name: 'User 1' },
       { id: '2', name: 'User 2' },

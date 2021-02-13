@@ -36,7 +36,7 @@ export class TaskService {
       .toPromise();
   }
 
-  getAllTasksPerUser(userId: string): Promise<Task> {
+  getAllTasksPerUser(userId: string): Promise<Task[]> {
     return this.http
       .post<any>(this.getAllTasksPerUser_url, { userId })
       .toPromise();

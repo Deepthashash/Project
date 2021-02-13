@@ -44,7 +44,8 @@ export class ViewComponent implements OnInit {
   update(){
     this.taskService.updateAsCompleted(this.id).then(
       (res) => {
-        console.log(res)
+        console.log(res);        
+        location.reload();
       },
       (err) => {
 

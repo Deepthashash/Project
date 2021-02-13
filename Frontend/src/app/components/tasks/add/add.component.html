@@ -13,22 +13,22 @@
         <div class="form-group">
             <label>Target User 01</label>
             <select class="form-control" formControlName="userId1" id="userId1">
-                <option *ngFor="let order of orders; let i = index" [value]="orders[i].id">
-                  {{orders[i].name}}
+                <option *ngFor="let user of users; let i = index" [value]="users[i]._id">
+                  {{users[i].firstName}} &nbsp; {{users[i].lastName}} 
                 </option>
               </select> 
         </div> <div class="form-group">
             <label>Target User 02</label>
             <select class="form-control" formControlName="userId2" id="userId2">
-                <option *ngFor="let order of orders; let i = index" [value]="orders[i].id">
-                  {{orders[i].name}}
+                <option *ngFor="let user of users; let i = index" [value]="users[i]._id">
+                  {{users[i].firstName}} &nbsp; {{users[i].lastName}} 
                 </option>
               </select> 
         </div> <div class="form-group">
             <label>Target User 03</label>
             <select class="form-control" formControlName="userId3" id="userId3">
-                <option *ngFor="let order of orders; let i = index" [value]="orders[i].id">
-                  {{orders[i].name}}
+                <option *ngFor="let user of users; let i = index" [value]="users[i]._id">
+                  {{users[i].firstName}} &nbsp; {{users[i].lastName}} 
                 </option>
               </select> 
         </div> 

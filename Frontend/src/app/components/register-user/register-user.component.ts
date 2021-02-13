@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register-user',
@@ -23,6 +24,7 @@ export class RegisterUserComponent implements OnInit {
   });
   constructor(
     private formBuilder: FormBuilder,
+    private authService: AuthService,
     private dialogRef: MatDialogRef<RegisterUserComponent>) { }
 
   ngOnInit(): void {
@@ -31,6 +33,24 @@ export class RegisterUserComponent implements OnInit {
   setProfilePicture(url): void {
     this.RegisterForm.controls.profilePicture.setValue(url);
     console.log('profile picture is : ' + url);
+  }
+
+  tryRegister(formData): void {
+    this.authService
+      .register(formData)
+      .subscribe(
+        (res) => {
+          // this.toastr.success('Login now', 'Registered Successfully');
+          
+
+          // this.router.navigate(['/login']);
+          this.RegisterForm.reset();
+        },
+        (err) => {
+          this.errorMessage = err.error[0];
+          console.log(err.error[0]);
+        }
+      );
   }
 
 }

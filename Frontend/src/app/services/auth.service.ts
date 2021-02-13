@@ -12,6 +12,7 @@ export class AuthService implements HttpInterceptor{
   private getCurrentUserUrl = 'http://localhost:3000/api/getCurrentUser';
   private getUserUrl = 'http://localhost:3000/api/getUser';
   private getUsersUrl = 'http://localhost:3000/api/getUsers';
+  private getAllUsersUrl = 'http://localhost:3000/api/getAllUsers';
   private approveOrDeleteUserUrl =
     'http://localhost:3000/api/approveOrDeleteUser';
   private updateUserUrl = 'http://localhost:3000/api/updateUser';
@@ -88,13 +89,23 @@ export class AuthService implements HttpInterceptor{
       .toPromise();
   }
 
+  getAllUsers(): Promise<User[]> {
+    return this.http
+      .get<any>(this.getAllUsersUrl)
+      .toPromise();
+  }
+
   approveOrDeleteUser(id: string, status: number): Promise<User> {
     return this.http
       .post<any>(this.approveOrDeleteUserUrl, { id, status })
       .toPromise();
   }
 
-  updateUser(newData: User): Promise<User> {
-    return this.http.put<any>(this.updateUserUrl, newData).toPromise();
+  updateUser(id:string,newData: User): Promise<User> {
+    var profilePicture = newData.profilePicture;
+    var firstName = newData.firstName;
+    var lastName = newData.lastName;
+    var mobileNumber = newData.mobileNumber;
+    return this.http.put<any>(this.updateUserUrl, {id,profilePicture,firstName,lastName,mobileNumber}).toPromise();
   }
 }

@@ -83,8 +83,9 @@
         </div>
         <div class="comments-container">
             <h2 style=" font-weight: bold; color: #0275d8;">Comments</h2>
-            <form class="comments">
-                <textarea rows="10" cols="50"></textarea>
+            <form class="comments" [formGroup]="CommentsForm">
+                <textarea rows="10" cols="50" formControlName="comment"></textarea>
+                <button [disabled]="CommentsForm.invalid" type="submit" class="btn btn-info" (click)="submit(CommentsForm.value)">Submit</button>
             </form>
         </div>
     </div>

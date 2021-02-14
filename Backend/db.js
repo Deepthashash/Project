@@ -10,3 +10,5 @@ mongoose.connect(process.env.MONGODB_URI, (err) => {
 
 require('./models/user.model');
 require('./models/tasks.model');
+require('./models/comments.model');
+require('./models/file.model');

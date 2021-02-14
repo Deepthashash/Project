@@ -11,7 +11,8 @@ module.exports.insertTask = (req, res) => {
         userId2:req.body.userId2,
         userId3:req.body.userId3,
         isCompleted:req.body.isCompleted,
-        isApproved:req.body.isApproved
+        isApproved:req.body.isApproved,
+        block: req.body.block
     });
   
     task.save((err, doc) => {
@@ -25,6 +26,36 @@ module.exports.insertTask = (req, res) => {
   
   module.exports.allTasks = (req, res) => {
     Tasks.find({},(err, docs) => {
+      if (!err) {
+        res.send(docs);
+      } else {
+        res.send("Error in retrieving: " + JSON.stringify(err, undefined, 2));
+      }
+    });
+  };
+
+  module.exports.allTasksBlock1 = (req, res) => {
+    Tasks.find({block:"block1"},(err, docs) => {
+      if (!err) {
+        res.send(docs);
+      } else {
+        res.send("Error in retrieving: " + JSON.stringify(err, undefined, 2));
+      }
+    });
+  };
+
+  module.exports.allTasksBlock2 = (req, res) => {
+    Tasks.find({block:"block2"},(err, docs) => {
+      if (!err) {
+        res.send(docs);
+      } else {
+        res.send("Error in retrieving: " + JSON.stringify(err, undefined, 2));
+      }
+    });
+  };
+
+  module.exports.allTasksBlock3 = (req, res) => {
+    Tasks.find({block:"block3"},(err, docs) => {
       if (!err) {
         res.send(docs);
       } else {
@@ -53,8 +84,8 @@ module.exports.insertTask = (req, res) => {
       });
   };
 
-  module.exports.getUnapprovedTasksPerUser = (req,res) => {
-    Tasks.find({$or:[{userId1: req.body.userId},{userId2: req.body.userId},{userId3: req.body.userId}]},{isApproved:false}, (err,docs) => {
+  module.exports.getUnapprovedTasks = (req,res) => {
+    Tasks.find({$and:[{isCompleted:true},{isApproved:false}]}, (err,docs) => {
       if(!err){
           res.send(docs);
       } else {

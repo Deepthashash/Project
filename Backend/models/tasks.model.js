@@ -15,7 +15,8 @@ var tasksSchema = new mongoose.Schema({
         default: null
     },
     isCompleted:{type:Boolean},
-    isApproved:{type:Boolean}
+    isApproved:{type:Boolean},
+    block:{type:String}
 });
 
 mongoose.model('Tasks',tasksSchema);

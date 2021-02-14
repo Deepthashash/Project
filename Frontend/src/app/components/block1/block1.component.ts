@@ -8,6 +8,7 @@ import { ViewComponent } from '../tasks/view/view.component';
 import { Validators, FormBuilder } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
   selector: 'app-block1',
@@ -25,31 +26,42 @@ export class Block1Component implements OnInit {
     private taskservice: TaskService,
     private commentService: CommentsService,
     private authService: AuthService,
+    private fileService: FileUploadService,
     private dialog: MatDialog
     ) { }
 
   tasks = [];
   onGoing = [];
   completed = [];
+  files = [];
   user: User;
 
   showDetails(id){
         var isBlock = true;
+        var isAdmin = false;
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.width = "50%";
-        dialogConfig.data ={id,isBlock}
+        dialogConfig.data ={id,isBlock,isAdmin}
         this.dialog.open(ViewComponent, dialogConfig);
   }
 
   ngOnInit(): void {
-    this.taskservice.getAllTasks().subscribe(
+    this.taskservice.getAllTasksBlock1().subscribe(
       (result) => {
         this.tasks = result;
         console.log(this.tasks);
         this.separate(this.tasks);
       },
       (error) => {
+
+      }
+    )
+    this.fileService.getAllFilesBlock1().subscribe(
+      (res) => {
+        this.files = res;
+      },
+      (err) => {
 
       }
     )

@@ -13,7 +13,10 @@ export class ViewComponent implements OnInit {
   startDate: any;
   endDate: any;
   isBlock: boolean;
-
+  isAdmin: boolean;
+  other: boolean;
+  admin: boolean;
+  isComplete: boolean;
 
   constructor(
     private taskService: TaskService,
@@ -21,6 +24,7 @@ export class ViewComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) data) {
       this.id = data.id;
       this.isBlock = data.isBlock;
+      this.isAdmin = data.isAdmin
     }
   
 
@@ -35,6 +39,25 @@ export class ViewComponent implements OnInit {
 
       }
     )
+    this.setStatus();
+  }
+
+  setStatus(){
+    if(this.isBlock){
+      this.admin = false;
+      this.other = false;
+    }else if(this.isAdmin){
+      this.admin = true;
+      this.other = false; 
+    }else{
+      if(this.task.isCompleted){
+        this.admin = false;
+        this.other = false; 
+      }else{
+        this.admin = false;
+        this.other = true; 
+      }
+    }
   }
 
   close(){
@@ -43,6 +66,18 @@ export class ViewComponent implements OnInit {
 
   update(){
     this.taskService.updateAsCompleted(this.id).then(
+      (res) => {
+        console.log(res);        
+        location.reload();
+      },
+      (err) => {
+
+      }
+    )
+  }
+
+  updateAsApproved(){
+    this.taskService.updateAsApproved(this.id).then(
       (res) => {
         console.log(res);        
         location.reload();

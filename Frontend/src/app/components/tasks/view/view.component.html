@@ -30,7 +30,8 @@
             <input class="form-control" type="text" disabled="true" value="{{task.userId3}}">
         </div>   -->
         <div class="button-container">
-            <button *ngIf="!isBlock" type="submit" class="btn btn-success" (click)="update()">Mark Complete</button>
+            <button *ngIf="other" type="submit" class="btn btn-success" (click)="update()">Mark Complete</button>
+            <button *ngIf="admin" type="submit" class="btn btn-success" (click)="updateAsApproved()">Approve</button>
             <button style="margin-left: 2px;" type="submit" class="btn btn-danger" (click)="close()">Close</button>
         </div>          
 

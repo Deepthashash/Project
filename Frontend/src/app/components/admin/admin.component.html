@@ -1,3 +1,62 @@
-
-<button (click)="openDialog()"></button>
-<button (click)="openRegister()"></button>
+<div style="display: flex;">
+    <div class="containerx">
+      <h1 class="text-center mt-5 mb-2" style="font-weight: bold;">Profile</h1>
+      <div class="user-details">
+        <div class="profile-picture">
+          <img [src]="user.profilePicture" alt="" />
+        </div>
+        <div class="item">
+          <div class="title">First Name:</div>
+          <div class="value">
+            {{ user.firstName }}
+          </div>
+        </div>
+        <div class="item">
+          <div class="title">Last Name:</div>
+          <div class="value">
+            {{ user.lastName }}
+          </div>
+        </div>
+        <div class="item">
+          <div class="title">Mobile Number:</div>
+          <div class="value">
+            {{ user.mobileNumber }}
+          </div>
+        </div>
+        <div class="item">
+          <div class="title">Email:</div>
+          <div class="value">
+            {{ user.email }}
+          </div>
+        </div>
+        </div>
+      <button class="btn btn-primary float-right m-5" (click)="openEditProfile()">
+        Edit Profile
+      </button>
+    </div>
+    
+    <div class="containery">
+      <div class="todo-container" style="display: flex;">        
+        <button type="button" class="btn btn-primary button" (click)="openRegister()">Add User</button>
+        <button type="button" class="btn btn-primary button" (click)="openAddTask()">Add Task</button>
+        <button type="button" class="btn btn-primary button" (click)="openUploadFile()">Add File</button>
+      </div>
+      <div class="todo-container" style="margin-top: 1%; display: flex;">
+        <button type="button" class="btn btn-primary button">Block 1</button>
+        <button type="button" class="btn btn-primary button">Block 2</button>
+        <button type="button" class="btn btn-primary button">Block 3</button>        
+      </div>
+      <div class="todo-container-new" style="margin-top: 1%;">
+        <h1 style="font-weight: bold;">Pending Approvals</h1>
+        <div class="container cards">
+          <div *ngFor="let task of onGoing; index as i;">
+              <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
+                  <div class="card-body" style="padding: 1.8% !important;display: flex;">
+                      <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.taskName}}</li>
+                    </div>
+              </div> 
+          </div>               
+      </div>
+      </div>
+    </div>
+    </div>

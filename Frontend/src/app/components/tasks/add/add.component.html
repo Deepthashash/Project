@@ -31,6 +31,14 @@
                   {{users[i].firstName}} &nbsp; {{users[i].lastName}} 
                 </option>
               </select> 
+        </div>
+        <div class="form-group">
+          <label>Block</label>
+          <select class="form-control" formControlName="block" id="block">
+              <option *ngFor="let block of blocks; let i = index" [value]="blocks[i]">
+                {{blocks[i]}}
+              </option>
+            </select> 
         </div> 
         <div class="form-group">
             <label>Start Date</label>

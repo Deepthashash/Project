@@ -52,10 +52,11 @@ export class ProfileComponent implements OnInit {
 
   showDetails(id){
     var isBlock = false;
+    var isAdmin = false;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.width = "50%";
-    dialogConfig.data ={id,isBlock}
+    dialogConfig.data ={id,isBlock,isAdmin}
     this.dialog.open(ViewComponent, dialogConfig);
   }
   openEditProfile() {

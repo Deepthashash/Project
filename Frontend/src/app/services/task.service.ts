@@ -12,9 +12,12 @@ export class TaskService {
 
   private insertTask_url = 'http://localhost:3000/api/insertTask';
   private getAllTasks_url = 'http://localhost:3000/api/getAllTasks';
+  private getAllTasksBlock1_url = 'http://localhost:3000/api/getAllTasksBlock1';
+  private getAllTasksBlock2_url = 'http://localhost:3000/api/getAllTasksBlock2';
+  private getAllTasksBlock3_url = 'http://localhost:3000/api/getAllTasksBlock3';
   private getTaskById_url = 'http://localhost:3000/api/getTaskById';
   private getAllTasksPerUser_url = 'http://localhost:3000/api/getAllTasksPerUser';
-  private getUnapprovedTasksPerUser_url = 'http://localhost:3000/api/getUnapprovedTasksPerUser';
+  private getUnapprovedTasks_url = 'http://localhost:3000/api/getUnapprovedTasks  ';
   private updateAsCompleted_url = 'http://localhost:3000/api/updateAsCompleted';
   private updateAsApproved_url = 'http://localhost:3000/api/updateAsApproved';
 
@@ -30,6 +33,18 @@ export class TaskService {
     return this.http.get<Task[]>(this.getAllTasks_url);
   }
 
+  getAllTasksBlock1(): Observable<Task[]> {
+    return this.http.get<Task[]>(this.getAllTasksBlock1_url);
+  }
+
+  getAllTasksBlock2(): Observable<Task[]> {
+    return this.http.get<Task[]>(this.getAllTasksBlock2_url);
+  }
+
+  getAllTasksBlock3(): Observable<Task[]> {
+    return this.http.get<Task[]>(this.getAllTasksBlock3_url);
+  }
+
   getTaskById(id: string): Promise<Task> {
     return this.http
       .post<any>(this.getTaskById_url, { id })
@@ -42,9 +57,9 @@ export class TaskService {
       .toPromise();
   }
 
-  getUnapprovedTasksPerUser(userId: string): Promise<Task> {
+  getUnapprovedTasks(): Promise<Task[]> {
     return this.http
-      .post<any>(this.getUnapprovedTasksPerUser_url, { userId })
+      .get<any>(this.getUnapprovedTasks_url)
       .toPromise();
   }
 

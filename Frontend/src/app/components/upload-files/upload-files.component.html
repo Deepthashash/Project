@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>Upload File</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="FileUploadForm">
+        <div class="form-group">
+            <label>File :</label>
+            <!-- input field coloured red when given data is failed validation -->
+            <app-image-uploader
+              [cloudFolder]="'files'"
+              (upload)="setProfilePicture($event)"
+            ></app-image-uploader>
+            <!-- show error message for validation error -->
+            <small
+              *ngIf="FileUploadForm.get('file').invalid"
+              class="text-danger"
+              >*File is required !</small
+            >
+          </div>
+        <div class="form-group">
+           <label>File Name</label>
+           <input type="text" class="form-control" placeholder="File Name" formControlName="fileName">
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" formControlName="category" id="category">
+                <option *ngFor="let category of categories; let i = index" [value]="categories[i]">
+                  {{categories[i]}} 
+                </option>
+              </select> 
+        </div> 
+        <div class="form-group">
+            <label>Block</label>
+            <select class="form-control" formControlName="block" id="block">
+                <option *ngFor="let block of blocks; let i = index" [value]="blocks[i]">
+                  {{blocks[i]}}
+                </option>
+              </select> 
+        </div>
+         
+        <div class="button-container">
+            <button [disabled]="FileUploadForm.invalid" type="submit" class="btn btn-info" (click)="upload(FileUploadForm.value)">Submit</button>
+            <button style="margin-left: 2px;" type="submit" class="btn btn-danger" (click)="close()">Close</button>
+        </div>          
+
+     </form>
+ 
+</mat-dialog-content>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/task.model';
+import { File } from 'src/app/models/file.model';
 import { Comments } from 'src/app/models/comments.model';
 import { TaskService } from 'src/app/services/task.service';
 import { CommentsService } from 'src/app/services/comments.service';
@@ -34,6 +35,9 @@ export class Block1Component implements OnInit {
   onGoing = [];
   completed = [];
   files = [];
+  drawings = [];
+  rfi = [];
+  other = [];
   user: User;
 
   showDetails(id){
@@ -60,6 +64,7 @@ export class Block1Component implements OnInit {
     this.fileService.getAllFilesBlock1().subscribe(
       (res) => {
         this.files = res;
+        this.change(this.files);
       },
       (err) => {
 
@@ -73,6 +78,18 @@ export class Block1Component implements OnInit {
         this.completed.push(element);
       }else{
         this.onGoing.push(element);
+      }
+    })
+  }
+
+  change(files: File[]){
+    files.forEach(element => {
+      if(element.category === "Drawings"){
+        this.drawings.push(element);
+      }else if(element.category === "rfi"){
+        this.rfi.push(element);
+      }else{
+        this.other.push(element);
       }
     })
   }

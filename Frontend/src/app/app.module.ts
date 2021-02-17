@@ -27,6 +27,7 @@ import { ImageUploaderComponent } from './components/image-uploader/image-upload
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { UploadFilesComponent } from './components/upload-files/upload-files.com
     ImageUploaderComponent,
     RegisterUserComponent,
     EditProfileComponent,
-    UploadFilesComponent
+    UploadFilesComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

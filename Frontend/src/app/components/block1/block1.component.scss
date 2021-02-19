@@ -97,9 +97,9 @@
                     padding-top: 8px;
 
                     .pending {
-                        position: absolute;
-                        margin-left: 230px;
-                        margin-right: auto;
+                        position: relative;
+                        margin-left: auto;
+                        margin-right: 1px;
                         color: #fa9907;
                         font-weight: 1000;
                     }
@@ -124,3 +124,18 @@
         }
     }
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    padding-left: 2.3em;
+  }
+  li:before {
+    content: ""; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -1.3em; /* same as padding-left set on li */
+    width: 1.3em; /* same as padding-left set on li */
+  }

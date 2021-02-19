@@ -1,6 +1,7 @@
 export class Notification {
     _id: string;
-    taskID: string;
+    taskId: string;
     userId: string;
     isSeen: boolean;
+    title: string;
   }

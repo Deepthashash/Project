@@ -6,6 +6,7 @@ import { TaskService } from 'src/app/services/task.service';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { ViewComponent } from '../tasks/view/view.component';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,6 +17,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private authService:AuthService, 
     private taskservice:TaskService,
+    private notificationService:NotificationService,
     private dialog: MatDialog    
     ) {}
 
@@ -24,6 +26,7 @@ export class ProfileComponent implements OnInit {
   tasks = [];
   onGoing = [];
   completed = [];
+  notifications = [];
 
   ngOnInit() {
     this.user = this.authService.getCurrentUser();
@@ -32,6 +35,14 @@ export class ProfileComponent implements OnInit {
         this.tasks = result;
         console.log(this.tasks);
         this.separate(this.tasks);
+      },
+      (error) => {
+
+      }
+    );
+    this.notificationService.getAllNotificationsPerUser(this.user._id).then(
+      (res) => {
+        this.notifications = res;
       },
       (error) => {
 

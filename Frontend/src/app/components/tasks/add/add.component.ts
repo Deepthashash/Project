@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { TaskService } from "../../../services/task.service"
 
 @Component({
@@ -29,6 +30,7 @@ export class AddComponent implements OnInit {
     private formBuilder: FormBuilder,
     private taskService: TaskService,
     private authService: AuthService,
+    private notificationService: NotificationService,
     private dialogRef: MatDialogRef<AddComponent>
     ) { }
 
@@ -65,6 +67,37 @@ export class AddComponent implements OnInit {
     this.taskService.postTask(formDetails).then(
       (res) => {
         console.log("Success");
+        var notification = {
+          _id: "",
+          taskId: res._id,
+          isSeen: false,
+          title: "New Task",
+          userId: formDetails.userId1  
+        } 
+        this.notificationService.postNotification(notification).then(
+          (res) => {
+            console.log(res);
+          }
+
+        );
+        if(formDetails.userId2 != ""){
+          notification.userId = formDetails.userId2;
+          this.notificationService.postNotification(notification).then(
+            (res) => {
+              console.log(res);
+            }
+  
+          );
+        }
+        if(formDetails.userId3 != ""){
+          notification.userId = formDetails.userId3;
+          this.notificationService.postNotification(notification).then(
+            (res) => {
+              console.log(res);
+            }
+  
+          );
+        }
         location.reload();
       },
       (err) => {

@@ -16,12 +16,23 @@ export class NotificationsComponent implements OnInit {
     ) {}
 
   user: User;
-  count: number;
+  count = 0;
+  notifications = [];
 
   ngOnInit(): void {
     this.user = this.authService.getCurrentUser();
     if(this.user.userType == "Engineer"){
-      this.count = 1;
+      this.notificationService.getAllNotificationsPerUser("admin").then(
+        (res) => {
+          this.count = res.length;
+        }
+      )
+    }else {
+      this.notificationService.getAllNotificationsPerUser(this.user._id).then(
+        (res) => {
+          this.count = res.length;
+        }
+      )
     }
   }
 

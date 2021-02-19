@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navigation></app-navigation>
 <div class="top-box"></div>
 <carousel class="carousal" 
     width="1000" 
@@ -18,54 +18,21 @@
 
 <div class="container container2">
     <div class="container blocks">
-        <button type="button" class="btn btn-outline-primary button">Block 1</button>
-        <button type="button" class="btn btn-outline-primary button">Block 2</button>
-        <button type="button" class="btn btn-outline-primary button">Block 3</button>
+        <button type="button" class="btn btn-outline-primary button">Block 1 &nbsp; {{percentage_block1}}%</button>
+        <button type="button" class="btn btn-outline-primary button">Block 2 &nbsp; {{percentage_block2}}%</button>
+        <button type="button" class="btn btn-outline-primary button">Block 3 &nbsp; {{percentage_block3}}%</button>
     </div>
     <div class="container todo">
         <div class="title">Todo Tasks</div>
-        <div class="container cards">
-        <div class="card text-white bg-primary todoCard" (click)="sayHello()">
-            <div class="card-body" style="padding-top: 4% !important;">
-                <li class="card-title">Kil the switch</li>
-              </div>
+        <div class="container cards">        
+            <div *ngFor="let task of tasks; index as i;">
+                <div class="card text-white bg-primary todoCard" (click)="open(task._id)">
+                    <div class="card-body" style="padding-top: 4% !important;">
+                        <li class="card-title">{{task.taskName}}</li>
+                      </div>
+                </div>
+            </div>        
         </div>
-        <div class="card text-white bg-primary todoCard">
-            <div class="card-body" style="padding-top: 4% !important;">
-                <li class="card-title">Kil the switch</li>
-              </div>
-        </div>
-        <div class="card text-white bg-primary todoCard">
-            <div class="card-body" style="padding-top: 4% !important;">
-                <li class="card-title">Kil the switch</li>
-              </div>
-        </div>
-        <div class="card text-white bg-primary todoCard">
-            <div class="card-body" style="padding-top: 4% !important;">
-                <li class="card-title">Kil the switch</li>
-              </div>
-        </div>
-        <div class="card text-white bg-primary todoCard">
-            <div class="card-body" style="padding-top: 4% !important;">
-                <li class="card-title">Kil the switch</li>
-              </div>
-        </div>
-        <div class="card text-white bg-primary todoCard">
-            <div class="card-body" style="padding-top: 4% !important;">
-                <li class="card-title">Kil the switch</li>
-              </div>
-        </div>
-        <div class="card text-white bg-primary todoCard">
-            <div class="card-body" style="padding-top: 4% !important;">
-                <li class="card-title">Kil the switch</li>
-              </div>
-        </div>
-        <div class="card text-white bg-primary todoCard">
-            <div class="card-body" style="padding-top: 4% !important;">
-                <li class="card-title">Kil the switch</li>
-              </div>
-        </div>
-    </div>
     </div>
 </div>
 <app-footer></app-footer>

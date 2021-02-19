@@ -5,7 +5,7 @@
         <div class="drawings-container">
             <div style="font-size: larger; font-weight: bold; color: #0275d8;">Drawings</div>
             <ul class="scroll" *ngFor="let drawing of drawings; index as i;">
-                <li><a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
             </ul>
         </div>
         <div class="rfi-container">

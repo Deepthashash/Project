@@ -28,6 +28,7 @@ import { RegisterUserComponent } from './components/register-user/register-user.
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { NotificationsComponent } from './components/notifications/notifications
     RegisterUserComponent,
     EditProfileComponent,
     UploadFilesComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

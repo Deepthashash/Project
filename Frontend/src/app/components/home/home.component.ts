@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { TaskService } from 'src/app/services/task.service';
+import { ViewComponent } from '../tasks/view/view.component';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,61 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private taskService: TaskService,
+    private dialog: MatDialog) { }
+
+  percentage_block1 = 0;
+  percentage_block2 = 0;
+  percentage_block3 = 0;
+
+  tasks = [];
+  tasks1 = [];
+  tasks2 = [];
+  tasks3 = []; 
 
   ngOnInit(): void {
+    this.taskService.getAllTasks().subscribe(
+      (res) => {
+        this.tasks = res;
+      }
+    )
+
+    this.taskService.getAllTasksBlock1().subscribe(
+      (res) => {
+        this.tasks1 = res;
+        var count = 0;
+        this.tasks1.forEach(element => {
+          if(element.isApproved){
+            count ++;
+          }
+        })
+        this.percentage_block1 = (count/this.tasks1.length) * 100;
+      }
+    )
+    this.taskService.getAllTasksBlock2().subscribe(
+      (res) => {
+        this.tasks2 = res;
+        var count = 0;
+        this.tasks2.forEach(element => {
+          if(element.isApproved){
+            count ++;
+          }
+        })
+        this.percentage_block2 = (count/this.tasks2.length) * 100;
+      }
+    )
+    this.taskService.getAllTasksBlock3().subscribe(
+      (res) => {
+        this.tasks3 = res;
+        var count = 0;
+        this.tasks3.forEach(element => {
+          if(element.isApproved){
+            count ++;
+          }
+        })
+        this.percentage_block3 = (count/this.tasks3.length) * 100;
+      }
+    )
   }
 
   images = [
@@ -18,8 +73,14 @@ export class HomeComponent implements OnInit {
     {path: '../../../assets/images/construction-site-3.jpg'}
   ]
 
-  sayHello(){
-    console.log("hello");
+  open(id:string){
+    var isBlock = true;
+    var isAdmin = false;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    dialogConfig.data ={id,isBlock,isAdmin}
+    this.dialog.open(ViewComponent, dialogConfig);
   }
 
 }

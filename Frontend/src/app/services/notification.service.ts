@@ -44,4 +44,5 @@ export class NotificationService {
       .put<any>(this.updateAsSeen_url, { id })
       .toPromise();
   }
+  
 }

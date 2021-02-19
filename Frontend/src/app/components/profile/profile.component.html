@@ -1,3 +1,4 @@
+<app-navigation></app-navigation>
 <div style="display: flex;">
 <div class="containerx">
   <h1 class="text-center mt-5 mb-2" style="font-weight: bold;">Profile</h1>
@@ -30,7 +31,7 @@
       </div>
     </div>
     </div>
-  <button class="btn btn-primary float-right m-5" (click)="openEditProfile()">
+  <button class="btn btn-primary float-right m-4"  style="position: absolute;" (click)="openEditProfile()">
     Edit Profile
   </button>
 </div>
@@ -61,6 +62,19 @@
             </div>               
         </div>
     </div>
+</div>
+
+<div class="todo-container2" style="margin-top: 1%;">
+      <h2 style=" font-weight: bold; color: #0275d8;">Todos</h2>
+      <div class="container cards" style="margin-top: 1%;">
+          <div *ngFor="let task of notifications; index as i;">
+              <div class="card text-white bg-primary todoCard" (click)="showDetails(task.taskId)">
+                  <div class="card-body" style="padding: 1.8% !important;display: flex;">
+                      <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.title}}</li>
+                    </div>
+              </div> 
+          </div>               
+      </div>
 </div>
 </div>
 </div>

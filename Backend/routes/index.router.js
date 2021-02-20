@@ -5,6 +5,7 @@ const ctrlUser = require("../controllers/user.controller");
 const ctrlTasks = require("../controllers/tasks.controller");
 const ctrlComments = require("../controllers/comments.controller");
 const ctrlFile = require("../controllers/file.controller");
+const ctrlNotification = require("../controllers/notification.controller");
 
 const jwtHelper = require("../config/jwtHelper");
 const { verify } = require("jsonwebtoken");
@@ -41,6 +42,13 @@ router.post("/insertFile", ctrlFile.insertFile);
 router.get("/getAllfilesBlock1", ctrlFile.getAllfilesBlock1);
 router.get("/getAllTasksBlock2", ctrlFile.getAllfilesBlock2);
 router.get("/getAllTasksBlock3", ctrlFile.getAllfilesBlock3);
+
+//NOTIFICATION CONTROLLER 
+router.get("/getAllCommentNotifications", ctrlNotification.getAllCommentNotifications);
+router.post("/insertNotification", ctrlNotification.insertNotification);
+router.post("/getAllNotificationsPerUser", ctrlNotification.getAllNotificationsPerUser);
+router.put("/updateAsSeen", ctrlNotification.updateAsSeen);
+
 
 
 module.exports = router;

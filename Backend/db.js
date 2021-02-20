@@ -12,3 +12,4 @@ require('./models/user.model');
 require('./models/tasks.model');
 require('./models/comments.model');
 require('./models/file.model');
+require('./models/notification.model');

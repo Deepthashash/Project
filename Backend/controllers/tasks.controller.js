@@ -92,7 +92,7 @@ module.exports.insertTask = (req, res) => {
         res.send("Error in retrieving: " + JSON.stringify(err, undefined, 2));
       } 
     });
-};
+  };
 
 module.exports.updateAsCompleted = (req,res) => {
     Tasks.findByIdAndUpdate(req.body.id,{isCompleted:true},{new:true}, (err,docs) => {

@@ -4,6 +4,7 @@ const Comments = mongoose.model("Comments");
 module.exports.insertComment = (req, res) => {
     var comment = new Comments({
         comment: req.body.comment,
+        commentName: req.body.commentName,
         blockName:req.body.blockName,
         userId:req.body.userId
     });

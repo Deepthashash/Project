@@ -4,4 +4,5 @@ export class Notification {
     userId: string;
     isSeen: boolean;
     title: string;
+    type: string;
   }

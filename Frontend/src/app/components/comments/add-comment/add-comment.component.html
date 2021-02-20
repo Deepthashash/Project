@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Add Comment</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="CommentAddForm">
+        <div class="form-group">
+           <label>Comment Name</label>
+           <input type="text" class="form-control" placeholder="Comment Name" formControlName="commentName">
+        </div>
+        <div class="form-group">
+           <label>Comment</label>
+           <textarea rows="5" class="form-control" placeholder="Comment" formControlName="comment"></textarea>
+        </div>
+        
+        <div class="button-container">
+            <button [disabled]="CommentAddForm.invalid" type="submit" class="btn btn-info" (click)="submit(CommentAddForm.value)">Submit</button>
+            <button style="margin-left: 2px;" type="submit" class="btn btn-danger" (click)="close()">Close</button>
+        </div>          
+
+     </form>
+ 
+</mat-dialog-content>

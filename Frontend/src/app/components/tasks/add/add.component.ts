@@ -72,7 +72,8 @@ export class AddComponent implements OnInit {
           taskId: res._id,
           isSeen: false,
           title: "New Task",
-          userId: formDetails.userId1  
+          userId: formDetails.userId1,
+          type: "task"  
         } 
         this.notificationService.postNotification(notification).then(
           (res) => {

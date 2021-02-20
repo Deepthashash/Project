@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
           console.log(res);
           if (res.status) {
             // this.errorMessage = 'temp';
-            // this.router.navigate(['/home']);
+            this.router.navigate(['/home']);
             console.log('success');
           } else {
             // this.errorMessage = res.error;

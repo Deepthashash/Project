@@ -29,6 +29,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
+import { ViewCommentComponent } from './components/comments/view-comment/view-comment.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     EditProfileComponent,
     UploadFilesComponent,
     NotificationsComponent,
-    NavigationComponent
+    NavigationComponent,
+    AddCommentComponent,
+    ViewCommentComponent
   ],
   imports: [
     BrowserModule,

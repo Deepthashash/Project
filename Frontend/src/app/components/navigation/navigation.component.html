@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Project Handler</a>
+    <a class="navbar-brand" href="/home">Project Handler</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,15 +7,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
+          <button class="btn btn-primary" (click)="openProfile()">Profile <span class="sr-only">(current)</span></button>
         </li>
         <li class="nav-item active">
-          <app-notifications style="margin-top: .65%; position: absolute;"></app-notifications>
+          <!-- <app-notifications style="margin-top: .65%; position: absolute;"></app-notifications> -->
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">            
+            <i class="fas fa-bell fa-lg" style="color: white;">{{count}}</i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div *ngFor="let notification of notifications; index as i;">
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="openNotification(notification)">{{notification.title}}</a>
+            </div>
+          </div>
         </li>        
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        &nbsp;
+        <button class="btn btn-danger my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
       </form>
     </div>
   </nav>

@@ -1,7 +1,6 @@
 <app-navigation></app-navigation>
 <div class="top-box"></div>
-<carousel class="carousal" 
-    width="1000" 
+<carousel class="carousal"
     height="400" 
     cellToShow="1" 
     cellWidth="100%" 
@@ -18,21 +17,20 @@
 
 <div class="container container2">
     <div class="container blocks">
-        <button type="button" class="btn btn-outline-primary button">Block 1 &nbsp; {{percentage_block1}}%</button>
-        <button type="button" class="btn btn-outline-primary button">Block 2 &nbsp; {{percentage_block2}}%</button>
-        <button type="button" class="btn btn-outline-primary button">Block 3 &nbsp; {{percentage_block3}}%</button>
+        <button type="button" class="btn btn-outline-primary button" (click)="navigate(1)">Block 1 &nbsp; {{percentage_block1}}%</button>
+        <button type="button" class="btn btn-outline-primary button" (click)="navigate(2)">Block 2 &nbsp; {{percentage_block2}}%</button>
+        <button type="button" class="btn btn-outline-primary button" (click)="navigate(3)">Block 3 &nbsp; {{percentage_block3}}%</button>
     </div>
     <div class="container todo">
         <div class="title">Todo Tasks</div>
         <div class="container cards">        
             <div *ngFor="let task of tasks; index as i;">
                 <div class="card text-white bg-primary todoCard" (click)="open(task._id)">
-                    <div class="card-body" style="padding-top: 4% !important;">
-                        <li class="card-title">{{task.taskName}}</li>
+                    <div class="card-body">
+                        <p class="card-title" style="text-align: center;font-size: 120%;">{{task.taskName}}</p>
                       </div>
                 </div>
             </div>        
         </div>
     </div>
 </div>
-<app-footer></app-footer>

@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { NotificationService } from 'src/app/services/notification.service';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class ViewComponent implements OnInit {
 
   constructor(
     private taskService: TaskService,
+    private notificationService: NotificationService,
     private dialogRef: MatDialogRef<ViewComponent>,
     @Inject(MAT_DIALOG_DATA) data) {
       this.id = data.id;
@@ -67,7 +69,19 @@ export class ViewComponent implements OnInit {
   update(){
     this.taskService.updateAsCompleted(this.id).then(
       (res) => {
-        console.log(res);        
+        console.log(res);
+        var notification = {
+          _id: "",
+          taskId: this.id,
+          isSeen: false,
+          title: "Pending Approval",
+          userId: "admin",
+          type: "task"  
+        } 
+        this.notificationService.postNotification(notification).then(
+          (res) => {
+            console.log(res);
+          });        
         location.reload();
       },
       (err) => {
@@ -79,7 +93,7 @@ export class ViewComponent implements OnInit {
   updateAsApproved(){
     this.taskService.updateAsApproved(this.id).then(
       (res) => {
-        console.log(res);        
+        console.log(res); 
         location.reload();
       },
       (err) => {

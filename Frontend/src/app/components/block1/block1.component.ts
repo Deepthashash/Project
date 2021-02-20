@@ -10,6 +10,8 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+import { AddCommentComponent } from '../comments/add-comment/add-comment.component';
+import { ViewCommentComponent } from '../comments/view-comment/view-comment.component';
 
 @Component({
   selector: 'app-block1',
@@ -34,6 +36,7 @@ export class Block1Component implements OnInit {
   tasks = [];
   onGoing = [];
   completed = [];
+  comments = [];
   files = [];
   drawings = [];
   rfi = [];
@@ -49,6 +52,14 @@ export class Block1Component implements OnInit {
         dialogConfig.data ={id,isBlock,isAdmin}
         this.dialog.open(ViewComponent, dialogConfig);
   }
+
+  showComment(id){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    dialogConfig.data ={id}
+    this.dialog.open(ViewCommentComponent, dialogConfig);
+}
 
   ngOnInit(): void {
     this.taskservice.getAllTasksBlock1().subscribe(
@@ -68,6 +79,11 @@ export class Block1Component implements OnInit {
       },
       (err) => {
 
+      }
+    )
+    this.commentService.getAllComments().subscribe(
+      (res) => {
+        this.comments = res;
       }
     )
   }
@@ -105,6 +121,15 @@ export class Block1Component implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  addComment(){
+    var block = "Block1";
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    dialogConfig.data ={block}
+    this.dialog.open(AddCommentComponent, dialogConfig);
   }
 
 }

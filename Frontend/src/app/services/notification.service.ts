@@ -14,6 +14,7 @@ export class NotificationService {
   private getNotificationById_url = 'http://localhost:3000/api/getNotificationById';
   private getAllNotificationsPerUser_url = 'http://localhost:3000/api/getAllNotificationsPerUser';
   private updateAsSeen_url = 'http://localhost:3000/api/updateAsSeen';
+  private getAllCommentNotifications_url = 'http://localhost:3000/api/getAllCommentNotifications';
 
   constructor(private http: HttpClient) { }
 
@@ -43,6 +44,10 @@ export class NotificationService {
     return this.http
       .put<any>(this.updateAsSeen_url, { id })
       .toPromise();
+  }
+
+  getAllCommentNotifications(): Promise<Notification[]> {
+    return this.http.get<any>(this.getAllCommentNotifications_url).toPromise();
   }
   
 }

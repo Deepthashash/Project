@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { TaskService } from 'src/app/services/task.service';
 import { ViewComponent } from '../tasks/view/view.component';
 
@@ -10,7 +11,7 @@ import { ViewComponent } from '../tasks/view/view.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private taskService: TaskService,
+  constructor(private taskService: TaskService,private router: Router,
     private dialog: MatDialog) { }
 
   percentage_block1 = 0;
@@ -81,6 +82,16 @@ export class HomeComponent implements OnInit {
     dialogConfig.width = "50%";
     dialogConfig.data ={id,isBlock,isAdmin}
     this.dialog.open(ViewComponent, dialogConfig);
+  }
+
+  navigate(num){
+    if(num == 1){
+      this.router.navigate(['/block1']);
+    }if(num == 2){
+      // this.router.navigate(['/block2']);
+    }else{
+      // this.router.navigate(['/block3']);
+    }
   }
 
 }

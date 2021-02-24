@@ -48,4 +48,32 @@ module.exports.insertFile = (req, res) => {
     });
   };
 
+  module.exports.getAllfiles = (req, res) => {
+    File.find({},(err, docs) => {
+      if (!err) {
+        res.send(docs);
+      } else {
+        res.send("Error in retrieving: " + JSON.stringify(err, undefined, 2));
+      }
+    });
+  };
+
+  module.exports.deleteFile = (req, res) => {
+    File.findByIdAndDelete(req.params.id, (err, docs) => {
+      if (docs) {
+        if (!err) {
+          return res.send(docs);
+        } else {
+          return res
+            .status(404)
+            .json({ status: false, message: "not found admin" });
+        }
+      } else {
+        return res
+          .status(404)
+          .json({ status: false, message: "not found admin" });
+      }
+    });
+  };
+
   

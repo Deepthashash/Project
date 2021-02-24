@@ -98,3 +98,21 @@ module.exports.updateUser = (req,res) => {
   });
 };
 
+module.exports.deleteUser = (req, res) => {
+  User.findByIdAndDelete(req.params.id, (err, docs) => {
+    if (docs) {
+      if (!err) {
+        return res.send(docs);
+      } else {
+        return res
+          .status(404)
+          .json({ status: false, message: "not found admin" });
+      }
+    } else {
+      return res
+        .status(404)
+        .json({ status: false, message: "not found admin" });
+    }
+  });
+};
+

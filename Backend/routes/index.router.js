@@ -18,6 +18,7 @@ router.post("/getUser", jwtHelper.verifyJwtToken, ctrlUser.getUser);
 router.post("/getUsers", jwtHelper.verifyJwtToken, ctrlUser.getUsers);
 router.get("/getAllUsers", ctrlUser.getAllUsers);
 router.put("/updateUser", ctrlUser.updateUser);
+router.delete("/deleteUser/:id", ctrlUser.deleteUser);
 
 
 //TASKS CONTROLLERS
@@ -31,17 +32,23 @@ router.put("/updateAsApproved", ctrlTasks.updateAsApproved);
 router.get("/getAllTasksBlock1", ctrlTasks.allTasksBlock1);
 router.get("/getAllTasksBlock2", ctrlTasks.allTasksBlock2);
 router.get("/getAllTasksBlock3", ctrlTasks.allTasksBlock3);
+router.delete("/deleteTask/:id",ctrlTasks.deleteTask);
 
 //COMMENTS CONTROLLERS
 router.post("/insertComment", ctrlComments.insertComment);
 router.get("/getAllComments", ctrlComments.allComments);
+router.get("/getAllCommentsBlock1", ctrlComments.allCommentsBlock1);
+router.get("/getAllCommentsBlock2", ctrlComments.allCommentsBlock2);
+router.get("/getAllCommentsBlock3", ctrlComments.allCommentsBlock3);
 router.post("/getCommentById", ctrlComments.getCommentById);
 
 //FILES CONTROLLER
 router.post("/insertFile", ctrlFile.insertFile);
-router.get("/getAllfilesBlock1", ctrlFile.getAllfilesBlock1);
-router.get("/getAllTasksBlock2", ctrlFile.getAllfilesBlock2);
-router.get("/getAllTasksBlock3", ctrlFile.getAllfilesBlock3);
+router.get("/getAllFilesBlock1", ctrlFile.getAllfilesBlock1);
+router.get("/getAllFilesBlock2", ctrlFile.getAllfilesBlock2);
+router.get("/getAllFilesBlock3", ctrlFile.getAllfilesBlock3);
+router.get("/getAllFiles", ctrlFile.getAllfiles);
+router.delete("/deleteFile/:id", ctrlFile.deleteFile);
 
 //NOTIFICATION CONTROLLER 
 router.get("/getAllCommentNotifications", ctrlNotification.getAllCommentNotifications);

@@ -113,3 +113,21 @@ module.exports.updateAsApproved = (req,res) => {
     } 
   });
 };
+
+module.exports.deleteTask = (req, res) => {
+  Tasks.findByIdAndDelete(req.params.id, (err, docs) => {
+    if (docs) {
+      if (!err) {
+        return res.send(docs);
+      } else {
+        return res
+          .status(404)
+          .json({ status: false, message: "not found admin" });
+      }
+    } else {
+      return res
+        .status(404)
+        .json({ status: false, message: "not found admin" });
+    }
+  });
+};

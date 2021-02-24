@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { EventEmitterService } from 'src/app/services/event-emitter.service';
 import { TaskService } from 'src/app/services/task.service';
+import { NavigationComponent } from '../navigation/navigation.component';
 import { ViewComponent } from '../tasks/view/view.component';
 
 @Component({
@@ -11,7 +13,7 @@ import { ViewComponent } from '../tasks/view/view.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private taskService: TaskService,private router: Router,
+  constructor(private taskService: TaskService,private router: Router, 
     private dialog: MatDialog) { }
 
   percentage_block1 = 0;
@@ -23,7 +25,7 @@ export class HomeComponent implements OnInit {
   tasks2 = [];
   tasks3 = []; 
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.taskService.getAllTasks().subscribe(
       (res) => {
         this.tasks = res;
@@ -87,10 +89,10 @@ export class HomeComponent implements OnInit {
   navigate(num){
     if(num == 1){
       this.router.navigate(['/block1']);
-    }if(num == 2){
-      // this.router.navigate(['/block2']);
+    }else if(num == 2){
+      this.router.navigate(['/block2']);
     }else{
-      // this.router.navigate(['/block3']);
+      this.router.navigate(['/block3']);
     }
   }
 

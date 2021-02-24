@@ -30,7 +30,7 @@ export class RouteGuardService implements CanActivate {
       if (next.data.type.includes(this.currentUser.userType)) {
         return true;
       } else {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/home']);
         return false;
       }
     }

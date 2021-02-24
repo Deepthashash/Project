@@ -4,7 +4,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: #ffffff;
-    border-radius: 20px;
+    // border-radius: 20px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     padding: 1px;
@@ -59,10 +59,10 @@
     .todo-container{
       width: 100%;
       background-color: #ffffff;
-      height: 15%;
-      border-radius: 20px;
+      height: 12%;
+      // border-radius: 20px;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-      padding-top: 3.5%;
+      padding-top: 2%;
       padding-left: 12%;
       display: flex;
 
@@ -70,11 +70,26 @@
       
   }
 
+  .todo-container-next{
+    width: 100%;
+    background-color: #ffffff;
+    height: 12%;
+    // border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    padding-top: 2%;
+    padding-left: 24%;
+    padding-right: auto;
+    display: flex;
+
+
+    
+}
+
   .todo-container-new{
     width: 100%;
     background-color: #ffffff;
-    height: 68%;
-    border-radius: 20px;
+    height: 61%;
+    // border-radius: 20px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     padding: 1%;
     // display: flex;

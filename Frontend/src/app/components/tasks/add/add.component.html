@@ -4,11 +4,35 @@
     <form [formGroup]="TaskAddForm">
         <div class="form-group">
            <label>Task Name</label>
-           <input type="text" class="form-control" placeholder="Task Name" formControlName="taskName">
+           <input type="text" class="form-control" placeholder="Task Name" formControlName="taskName" required>
+           <div
+           *ngIf="
+           TaskAddForm.get('taskName').invalid &&
+           TaskAddForm.get('taskName').touched
+           "
+         >
+           <small
+             class="text-danger"
+             *ngIf="TaskAddForm.get('taskName').errors.required"
+             >*Task Name is required !</small
+           >
+         </div>
         </div>
         <div class="form-group">
            <label>Description</label>
-           <textarea rows="5" class="form-control" placeholder="Description" formControlName="description"></textarea>
+           <textarea rows="5" class="form-control" placeholder="Description" formControlName="description" required></textarea>
+           <div
+           *ngIf="
+           TaskAddForm.get('description').invalid &&
+           TaskAddForm.get('description').touched
+           "
+         >
+           <small
+             class="text-danger"
+             *ngIf="TaskAddForm.get('description').errors.required"
+             >*description is required !</small
+           >
+         </div>
         </div>
         <div class="form-group">
             <label>Target User 01</label>
@@ -17,6 +41,18 @@
                   {{users[i].firstName}} &nbsp; {{users[i].lastName}} 
                 </option>
               </select> 
+              <div
+           *ngIf="
+           TaskAddForm.get('userId1').invalid &&
+           TaskAddForm.get('userId1').touched
+           "
+         >
+           <small
+             class="text-danger"
+             *ngIf="TaskAddForm.get('userId1').errors.required"
+             >*User Name is required !</small
+           >
+         </div>
         </div> <div class="form-group">
             <label>Target User 02</label>
             <select class="form-control" formControlName="userId2" id="userId2">
@@ -35,18 +71,54 @@
         <div class="form-group">
           <label>Block</label>
           <select class="form-control" formControlName="block" id="block">
-              <option *ngFor="let block of blocks; let i = index" [value]="blocks[i]">
-                {{blocks[i]}}
+              <option *ngFor="let block of blocks; let i = index" [value]="blocks[i].id">
+                {{blocks[i].name}}
               </option>
             </select> 
+            <div
+           *ngIf="
+           TaskAddForm.get('block').invalid &&
+           TaskAddForm.get('block').touched
+           "
+         >
+           <small
+             class="text-danger"
+             *ngIf="TaskAddForm.get('block').errors.required"
+             >*Block is required !</small
+           >
+         </div>
         </div> 
         <div class="form-group">
             <label>Start Date</label>
             <input class="form-control" type="datetime-local" formControlName="startDate">
+            <div
+           *ngIf="
+           TaskAddForm.get('startDate').invalid &&
+           TaskAddForm.get('startDate').touched
+           "
+         >
+           <small
+             class="text-danger"
+             *ngIf="TaskAddForm.get('startDate').errors.required"
+             >*Start Date is required !</small
+           >
+         </div>
         </div>
         <div class="form-group">
             <label>End Date</label>
             <input class="form-control" type="datetime-local" formControlName="endDate">
+            <div
+           *ngIf="
+           TaskAddForm.get('endDate').invalid &&
+           TaskAddForm.get('endDate').touched
+           "
+         >
+           <small
+             class="text-danger"
+             *ngIf="TaskAddForm.get('endDate').errors.required"
+             >*End Date is required !</small
+           >
+         </div>
         </div>  
         <div class="button-container">
             <button [disabled]="TaskAddForm.invalid" type="submit" class="btn btn-info" (click)="submit(TaskAddForm.value)">Submit</button>

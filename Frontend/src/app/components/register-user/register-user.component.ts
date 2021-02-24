@@ -53,4 +53,8 @@ export class RegisterUserComponent implements OnInit {
       );
   }
 
+  close(){
+    this.dialogRef.close();
+  }
+
 }

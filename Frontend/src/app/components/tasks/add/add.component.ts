@@ -13,7 +13,11 @@ import { TaskService } from "../../../services/task.service"
 export class AddComponent implements OnInit {
 
   users = [];
-  blocks = ["block1","block2","block3"]
+  blocks = [
+    {id:"block1", name: "Block1"},
+    {id:"block2", name: "Block2"},
+    {id:"block3", name: "Block3"},
+  ]
 
   TaskAddForm = this.formBuilder.group({
     taskName: ['', [Validators.required]],
@@ -45,15 +49,6 @@ export class AddComponent implements OnInit {
     )
   }
 
-  getUsers(){
-    
-    return [
-      { id: '1', name: 'User 1' },
-      { id: '2', name: 'User 2' },
-      { id: '3', name: 'User 3' },
-      { id: '4', name: 'User 4' }
-    ];
-  }
 
   submit(formData){
     const formDetails = {

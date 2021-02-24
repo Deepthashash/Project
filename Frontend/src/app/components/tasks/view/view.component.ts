@@ -34,8 +34,8 @@ export class ViewComponent implements OnInit {
     this.taskService.getTaskById(this.id).then(
       (res) => {
         this.task = res;
-        this.startDate = new Date(res.startDate).toLocaleTimeString()+ "  " + new Date(res.endDate).toLocaleDateString();
-        this.endDate = new Date(res.startDate).toLocaleTimeString()+ "  " + new Date(res.endDate).toLocaleDateString();
+        this.startDate = new Date(res.startDate).toLocaleTimeString()+ "  " + new Date(res.startDate).toLocaleDateString();
+        this.endDate = new Date(res.endDate).toLocaleTimeString()+ "  " + new Date(res.endDate).toLocaleDateString();
       },
       (err) => {
 

@@ -11,9 +11,11 @@ export class FileUploadService {
   file = {} as File;
 
   private insertfile_url = 'http://localhost:3000/api/insertFile';
-  private getAllfilesBlock1_url = 'http://localhost:3000/api/getAllfilesBlock1';
-  private getAllfilesBlock2_url = 'http://localhost:3000/api/getAllfilesBlock2';
-  private getAllfilesBlock3_url = 'http://localhost:3000/api/getAllfilesBlock3';
+  private getAllfilesBlock1_url = 'http://localhost:3000/api/getAllFilesBlock1';
+  private getAllfilesBlock2_url = 'http://localhost:3000/api/getAllFilesBlock2';
+  private getAllfilesBlock3_url = 'http://localhost:3000/api/getAllFilesBlock3';
+  private getAllfiles_url = 'http://localhost:3000/api/getAllfiles';
+  private deleteFile_url = 'http://localhost:3000/api/deleteFile';
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +23,10 @@ export class FileUploadService {
     return this.http
       .post<any>(this.insertfile_url, file)
       .toPromise();
+  }
+
+  getAllFiles(): Observable<File[]> {
+    return this.http.get<File[]>(this.getAllfiles_url);
   }
 
   getAllFilesBlock1(): Observable<File[]> {
@@ -33,5 +39,9 @@ export class FileUploadService {
 
   getAllFilesBlock3(): Observable<File[]> {
     return this.http.get<File[]>(this.getAllfilesBlock3_url);
+  }
+
+  deleteFile(id: string) {
+    return this.http.delete<File>(this.deleteFile_url + '/' + id);
   }
 }

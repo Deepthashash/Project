@@ -4,7 +4,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #ffffff;
-  border-radius: 20px;
+  // border-radius: 20px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   padding: 1px;
@@ -12,33 +12,33 @@
   height: 95vh;
 
   .user-details {
-    padding: 2%;
+    padding: 20px;
 
     .profile-picture {
       display: flex;
       justify-content: center;
-      margin-bottom: 2;
+      margin-bottom: 15px;
       img {
-        width: 40%;
-        height: 40%;
+        width: 250px;
+        height: 250px;
         border: 2px solid #10273c;
-        border-radius: 50%;
+        border-radius: 200px;
         object-fit: cover;
       }
     }
 
     .item {
       display: flex;
-      margin-top: 2%;
+      margin-top: 5px;
       margin-left: 25%;
       .title {
-        font-size: 150%;
+        font-size: 20px;
         font-weight: bold;
       }
       .value {
         position: absolute;
-        font-size: 150%;
-        margin-left: 30%;
+        font-size: 20px;
+        margin-left: 180px;
       }
       img {
         width: 400px;
@@ -60,7 +60,7 @@
     width: 100%;
     background-color: #ffffff;
     height: 49.5%;
-    border-radius: 20px;
+    // border-radius: 20px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     padding: 1%;
     display: flex;
@@ -101,7 +101,7 @@
   width: 100%;
   background-color: #ffffff;
   height: 49.5%;
-  border-radius: 20px;
+  // border-radius: 20px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   padding: 1%;
 

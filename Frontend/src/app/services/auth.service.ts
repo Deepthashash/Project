@@ -16,6 +16,7 @@ export class AuthService implements HttpInterceptor{
   private approveOrDeleteUserUrl =
     'http://localhost:3000/api/approveOrDeleteUser';
   private updateUserUrl = 'http://localhost:3000/api/updateUser';
+  private deleteUser_url = 'http://localhost:3000/api/deleteUser';
 
   constructor(private http: HttpClient) {}
 
@@ -107,5 +108,9 @@ export class AuthService implements HttpInterceptor{
     var lastName = newData.lastName;
     var mobileNumber = newData.mobileNumber;
     return this.http.put<any>(this.updateUserUrl, {id,profilePicture,firstName,lastName,mobileNumber}).toPromise();
+  }
+
+  deleteUser(id: string) {
+    return this.http.delete<User>(this.deleteUser_url + '/' + id);
   }
 }

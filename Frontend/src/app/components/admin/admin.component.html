@@ -1,4 +1,4 @@
-<app-navigation></app-navigation>
+
 <div style="display: flex;">
     <div class="containerx">
       <h1 class="text-center mt-5 mb-2" style="font-weight: bold;">Profile</h1>
@@ -30,6 +30,12 @@
             {{ user.email }}
           </div>
         </div>
+        <div class="item">
+          <div class="title">Designation:</div>
+          <div class="value">
+            {{ user.userType }}
+          </div>
+        </div>
         </div>
       <button class="btn btn-primary float-right m-5" (click)="openEditProfile()">
         Edit Profile
@@ -42,11 +48,17 @@
         <button type="button" class="btn btn-primary button" (click)="openAddTask()">Add Task</button>
         <button type="button" class="btn btn-primary button" (click)="openUploadFile()">Add File</button>
       </div>
-      <div class="todo-container" style="margin-top: 1%; display: flex;">
-        <button type="button" class="btn btn-primary button">Block 1</button>
-        <button type="button" class="btn btn-primary button">Block 2</button>
-        <button type="button" class="btn btn-primary button">Block 3</button>        
+      <div class="todo-container-next" style="margin-top: 1%; display: flex;">
+        <a class="btn btn-primary button" routerLink="/users" routerLinkActive="active">Users</a>
+        <a class="btn btn-primary button" routerLink="/files" routerLinkActive="active">Files</a>      
       </div>
+
+      <div class="todo-container" style="margin-top: 1%; display: flex;">
+        <button type="button" class="btn btn-primary button" (click)="navigate(1)">Block 1</button>
+        <button type="button" class="btn btn-primary button" (click)="navigate(2)">Block 2</button>
+        <button type="button" class="btn btn-primary button" (click)="navigate(3)">Block 3</button>        
+      </div>
+
       <div class="todo-container-new" style="margin-top: 1%;">
         <h1 style="font-weight: bold;">Pending Approvals</h1>
         <div class="container cards">

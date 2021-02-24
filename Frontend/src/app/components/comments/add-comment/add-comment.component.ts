@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 import { CommentsService } from 'src/app/services/comments.service';
 import { NotificationService } from 'src/app/services/notification.service';
@@ -28,6 +29,7 @@ export class AddCommentComponent implements OnInit {
     private authService: AuthService,
     private notificationService: NotificationService,
     private dialogRef: MatDialogRef<AddCommentComponent>,
+    private toastrService: ToastrService,
     @Inject(MAT_DIALOG_DATA) data){
       this.blockName = data.block;
     }
@@ -78,6 +80,8 @@ export class AddCommentComponent implements OnInit {
         this.notificationService.postNotification(notification).then(
           (res) => {
             console.log(res);
+
+            this.toastrService.success('','Comment Added');
           }
 
         );       

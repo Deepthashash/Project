@@ -193,6 +193,8 @@
           </div>
     
           <!-- signup button is disabled when validation error exists -->
+
+        <div class="button-container">
           <button
             [disabled]="RegisterForm.invalid"
             type="submit"
@@ -201,6 +203,9 @@
           >
             Register Now
           </button>
+
+          <button style="margin-left: 2px;" type="submit" class="btn btn-danger" (click)="close()">Close</button>
+          </div>
         </fieldset>
       </form>
  

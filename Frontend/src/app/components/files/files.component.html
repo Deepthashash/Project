@@ -1,0 +1,20 @@
+<div class="main-container">
+    <h1 style="color: #0275d8;font-weight: bold;">Files</h1>
+    <table>
+        <th>File Name</th>
+        <th>Category</th>
+        <th>Block</th>
+        <th>Actions</th>
+        <tr *ngFor="let file of files; index as i;">
+            <td>{{file.fileName}}</td>
+            <td>{{file.category}}</td>
+            <td>{{file.block}}</td>
+            <td>
+                <div style="display: flex; margin-left: 25%; margin-right: auto;">
+                    <button class="btn btn-warning" (click)="edit(file._id)" ><i class="fas fa-edit" style="color: black;"></i></button>
+                    <button style="margin-left: 5%;" class="btn btn-danger" (click)="delete(file._id)" ><i class="fas fa-trash-alt" style="color: black;"></i></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

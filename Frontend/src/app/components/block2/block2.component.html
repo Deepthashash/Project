@@ -1,0 +1,68 @@
+
+<div class="main-container">
+    <div class="documents-container">
+        <h2 style="text-align: center; font-weight: bold; color: #0275d8;">Documents</h2>
+        <div class="drawings-container">
+            <div style="font-size: larger; font-weight: bold; color: #0275d8;">Drawings</div>
+            <ul class="scroll">
+                <div *ngFor="let drawing of drawings; index as i;">
+                    <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                </div>
+            </ul>
+        </div>
+        <div class="rfi-container">
+            <div style="font-size: larger; font-weight: bold; color: #0275d8;">RFI/Site Instruction</div>
+            <ul class="scroll" *ngFor="let task of completed; index as i;">
+            </ul>
+        </div>
+        <div class="any-container">
+            <div style="font-size: larger; font-weight: bold; color: #0275d8;">Any Other</div>
+            <ul class="scroll" *ngFor="let task of completed; index as i;">
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="other-container">
+        <div class="todo-container">
+            <div class="todo">
+                <h2 style=" font-weight: bold; color: #0275d8;">Todos</h2>
+                <div class="container cards">
+                    <div *ngFor="let task of onGoing; index as i;">
+                        <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
+                            <div class="card-body" style="padding: 1.8% !important;display: flex;">
+                                <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.taskName}}</li> &nbsp;<p class="pending" *ngIf="task.isCompleted">Approval pending</p>
+                              </div>
+                        </div> 
+                    </div>               
+                </div>
+            </div>
+            <div class="completed">
+                <h2 style=" font-weight: bold; color: #0275d8;">Completed</h2>
+                <div class="container cards">
+                    <div *ngFor="let task of completed; index as i;">
+                        <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
+                            <div class="card-body" style="padding: 1.8% !important;display: flex;">
+                                <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.taskName}}</li>
+                              </div>
+                        </div> 
+                    </div>               
+                </div>
+            </div>
+        </div>
+        <div class="comments-container">
+            <h2 style=" font-weight: bold; color: #0275d8;">Comments</h2>
+            <div class="completed" style="display: flex !important;">
+                <div class="container cards" style="width: 75% !important;">
+                    <div *ngFor="let task of comments; index as i;">
+                        <div class="card text-white bg-primary todoCard" style="margin-bottom: 1%;" (click)="showComment(task._id)">
+                            <div class="card-body" style="padding: 1.8% !important;display: flex;">
+                                <p class="card-title" style="font-size:18px; font-weight: bolder;">{{task.commentName}}</p>
+                              </div>
+                        </div> 
+                    </div>               
+                </div>
+                <button class="btn bg-success" (click)="addComment()" style="height: 10%;">Add Comment</button>
+            </div>
+        </div>
+    </div>
+</div>

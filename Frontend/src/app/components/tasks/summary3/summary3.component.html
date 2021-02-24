@@ -1,0 +1,36 @@
+<div class="main-container">
+    <h1 style="color: #0275d8;font-weight: bold;">Block3</h1>
+    <table>
+        <th>Task Name</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Assigned User 01</th>
+        <th>Assigned User 02</th>
+        <th>Assigned User 03</th>
+        <th>Status</th>
+        <th>Action</th>
+        <tr *ngFor="let task of tasks; index as i;">
+            <td>{{task.taskName}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.startDate}}</td>
+            <td>{{task.startDate}}</td>
+            <td>{{task.userId1}}</td>
+            <td>{{task.userId2}}</td>
+            <td>{{task.userId3}}</td>
+            <td>
+                <div *ngIf="task.isApproved; else elseBlock">Approved</div>                
+                <ng-template #elseBlock>
+                    <div *ngIf="task.isCompleted; else elseBlock">Approval pending</div>  
+                    <ng-template #elseBlock>On Going</ng-template>
+                </ng-template>
+            </td>
+            <td>
+                <div style="display: flex;">
+                    <button style="margin-right: 2%;" class="btn btn-warning" (click)="edit(task._id)" ><i class="fas fa-edit" style="color: black;"></i></button>
+                    <button class="btn btn-danger" (click)="delete(task._id)" ><i class="fas fa-trash-alt" style="color: black;"></i></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

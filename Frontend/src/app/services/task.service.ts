@@ -20,6 +20,7 @@ export class TaskService {
   private getUnapprovedTasks_url = 'http://localhost:3000/api/getUnapprovedTasks  ';
   private updateAsCompleted_url = 'http://localhost:3000/api/updateAsCompleted';
   private updateAsApproved_url = 'http://localhost:3000/api/updateAsApproved';
+  private deleteTask_url = 'http://localhost:3000/api/deleteTask';
 
   constructor(private http: HttpClient) { }
 
@@ -73,5 +74,9 @@ export class TaskService {
     return this.http
       .put<any>(this.updateAsApproved_url, { id })
       .toPromise();
+  }
+
+  deleteTask(id: string) {
+    return this.http.delete<Task>(this.deleteTask_url + '/' + id);
   }
 }

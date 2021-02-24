@@ -14,7 +14,7 @@ export class UploadFilesComponent implements OnInit {
 
   errorMessage = 'temp';
   successMessage = 'temp';
-  categories = ["Drawings","RFI","Other"];
+  categories = ["Structural Drawings","Architectural Drawings","R/F Drawings","MEP Drawings","Site Instructions","Method Statement","Any Other"];
   blocks = ["Block1","Block2","Block3"];
 
   FileUploadForm = this.formBuilder.group({

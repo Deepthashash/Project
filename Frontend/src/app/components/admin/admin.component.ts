@@ -9,6 +9,7 @@ import { TaskService } from 'src/app/services/task.service';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { ViewComponent } from '../tasks/view/view.component';
 import { UploadFilesComponent } from '../upload-files/upload-files.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -20,6 +21,7 @@ export class AdminComponent implements OnInit {
   constructor(
     private authService:AuthService, 
     private taskservice:TaskService,
+    private router:Router,
     private dialog: MatDialog    
     ) {}
 
@@ -88,6 +90,16 @@ export class AdminComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "50%";
     this.dialog.open(RegisterUserComponent, dialogConfig);
+  }
+
+  navigate(num){
+    if(num == 1){
+      this.router.navigate(['/block1Summary']);
+    }else if(num == 2){
+      this.router.navigate(['/block2Summary']);
+    }else{
+      this.router.navigate(['/block3Summary']);
+    }
   }
 
 }

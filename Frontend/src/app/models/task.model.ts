@@ -9,5 +9,5 @@ export class Task {
     userId3: string;
     isCompleted: boolean;
     isApproved: boolean;
-    blockName: string;
+    block: string;
   }

@@ -18,7 +18,19 @@
           </div>
         <div class="form-group">
            <label>File Name</label>
-           <input type="text" class="form-control" placeholder="File Name" formControlName="fileName">
+           <input type="text" class="form-control" placeholder="File Name" formControlName="fileName" required>
+           <div
+           *ngIf="
+           FileUploadForm.get('fileName').invalid &&
+           FileUploadForm.get('fileName').touched
+           "
+         >
+           <small
+             class="text-danger"
+             *ngIf="FileUploadForm.get('fileName').errors.required"
+             >*File Name is required !</small
+           >
+         </div>
         </div>
         <div class="form-group">
             <label>Category</label>
@@ -27,6 +39,18 @@
                   {{categories[i]}} 
                 </option>
               </select> 
+              <div
+           *ngIf="
+           FileUploadForm.get('category').invalid &&
+           FileUploadForm.get('category').touched
+           "
+         >
+           <small
+             class="text-danger"
+             *ngIf="FileUploadForm.get('category').errors.required"
+             >*Category is required !</small
+           >
+         </div>
         </div> 
         <div class="form-group">
             <label>Block</label>
@@ -34,7 +58,19 @@
                 <option *ngFor="let block of blocks; let i = index" [value]="blocks[i]">
                   {{blocks[i]}}
                 </option>
-              </select> 
+              </select>
+              <div
+           *ngIf="
+           FileUploadForm.get('block').invalid &&
+           FileUploadForm.get('block').touched
+           "
+         >
+           <small
+             class="text-danger"
+             *ngIf="FileUploadForm.get('block').errors.required"
+             >*Block is required !</small
+           >
+         </div> 
         </div>
          
         <div class="button-container">

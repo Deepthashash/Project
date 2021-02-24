@@ -81,7 +81,7 @@ export class Block1Component implements OnInit {
 
       }
     )
-    this.commentService.getAllComments().subscribe(
+    this.commentService.getAllCommentsBlock1().subscribe(
       (res) => {
         this.comments = res;
       }

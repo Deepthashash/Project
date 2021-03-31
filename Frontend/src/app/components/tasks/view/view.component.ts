@@ -36,15 +36,18 @@ export class ViewComponent implements OnInit {
         this.task = res;
         this.startDate = new Date(res.startDate).toLocaleTimeString()+ "  " + new Date(res.startDate).toLocaleDateString();
         this.endDate = new Date(res.endDate).toLocaleTimeString()+ "  " + new Date(res.endDate).toLocaleDateString();
+        this.setStatus();
       },
       (err) => {
 
       }
     )
-    this.setStatus();
   }
 
   setStatus(){
+    console.log(this.isBlock);
+    console.log(this.isAdmin);
+    console.log(this.task.isCompleted);
     if(this.isBlock){
       this.admin = false;
       this.other = false;

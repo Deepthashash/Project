@@ -7,7 +7,6 @@ import { NotificationService } from 'src/app/services/notification.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ViewCommentComponent } from '../comments/view-comment/view-comment.component';
 import { ViewComponent } from '../tasks/view/view.component';
-import { EventEmitterService } from 'src/app/services/event-emitter.service';
 
 @Component({
   selector: 'app-navigation',
@@ -20,7 +19,6 @@ export class NavigationComponent implements OnInit {
     private router: Router,
     private notificationService: NotificationService,
     private authService: AuthService,
-    private eventEmitterService: EventEmitterService,
     private dialog: MatDialog
     ) { }
 
@@ -32,15 +30,10 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.eventEmitterService.subsVar==undefined) {    
-      this.eventEmitterService.subsVar = this.eventEmitterService.    
-      invokeFirstComponentFunction.subscribe((name:string) => {    
-        location.reload;    
-      });    
-    }
+  
 
     this.user = this.authService.getCurrentUser();
-    if((this.user.userType == "Engineer") || (this.user.userType == "ProjectManager")){
+    if((this.user.userType == "Project Manager(Admin)") || (this.user.userType == "Technical Supervisor(Admin)")){
       this.notificationService.getAllNotificationsPerUser("admin").then(
         (res) => {
           this.count = res.length;
@@ -52,6 +45,7 @@ export class NavigationComponent implements OnInit {
         (res) => {
           this.count = res.length;
           this.notifications = res;
+          console.log(res);
         }
       )
     }
@@ -79,7 +73,7 @@ export class NavigationComponent implements OnInit {
 
   openProfile(){
     this.user = this.authService.getCurrentUser();
-    if((this.user.userType == "ProjectManager") || (this.user.userType == "Engineer") ){
+    if((this.user.userType == "Project Manager(Admin)") || (this.user.userType == "Technical Supervisor(Admin)") ){
       this.router.navigate(['/admin']);      
     }else{
       this.router.navigate(['/profile']);

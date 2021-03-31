@@ -37,11 +37,11 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
 import { ViewCommentComponent } from './components/comments/view-comment/view-comment.component';
-import { EventEmitterService } from './services/event-emitter.service';
 import { DeleteComponent } from './components/delete/delete.component';
 import { EditTaskComponent } from './components/edit-task/edit-task.component';
 import { UsersComponent } from './components/users/users.component';
 import { FilesComponent } from './components/files/files.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -72,7 +72,8 @@ import { FilesComponent } from './components/files/files.component';
     DeleteComponent,
     EditTaskComponent,
     UsersComponent,
-    FilesComponent
+    FilesComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -96,8 +97,7 @@ import { FilesComponent } from './components/files/files.component';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthService,
       multi: true,
-    },
-    EventEmitterService
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddComponent]

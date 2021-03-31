@@ -1,25 +1,56 @@
-
+<app-navigation></app-navigation>
 <div class="main-container">
     <div class="documents-container">
         <h2 style="text-align: center; font-weight: bold; color: #0275d8;">Documents</h2>
+        <div class="xtra">
         <div class="drawings-container">
-            <div style="font-size: larger; font-weight: bold; color: #0275d8;">Drawings</div>
+            <div style="font-size: larger; font-weight: bold; color: #0275d8;">Structural Drawings</div>
             <ul class="scroll">
                 <div *ngFor="let drawing of drawings; index as i;">
                     <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
                 </div>
             </ul>
         </div>
-        <div class="rfi-container">
-            <div style="font-size: larger; font-weight: bold; color: #0275d8;">RFI/Site Instruction</div>
+        <div class="drawings-container">
+            <div style="font-size: larger; font-weight: bold; color: #0275d8;">Architectural Drawings</div>
+            <ul class="scroll">
+                <div *ngFor="let drawing of drawings; index as i;">
+                    <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                </div>
+            </ul>
+        </div><div class="drawings-container">
+            <div style="font-size: larger; font-weight: bold; color: #0275d8;">R/F Drawings</div>
+            <ul class="scroll">
+                <div *ngFor="let drawing of drawings; index as i;">
+                    <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                </div>
+            </ul>
+        </div><div class="drawings-container">
+            <div style="font-size: larger; font-weight: bold; color: #0275d8;">MEP Drawings</div>
+            <ul class="scroll">
+                <div *ngFor="let drawing of drawings; index as i;">
+                    <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                </div>
+            </ul>
+        </div><div class="drawings-container">
+            <div style="font-size: larger; font-weight: bold; color: #0275d8;">Site Instructions</div>
+            <ul class="scroll">
+                <div *ngFor="let drawing of drawings; index as i;">
+                    <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                </div>
+            </ul>
+        </div>
+        <div class="drawings-container">
+            <div style="font-size: larger; font-weight: bold; color: #0275d8;">Method Statement</div>
             <ul class="scroll" *ngFor="let task of completed; index as i;">
             </ul>
         </div>
-        <div class="any-container">
+        <div class="drawings-container">
             <div style="font-size: larger; font-weight: bold; color: #0275d8;">Any Other</div>
             <ul class="scroll" *ngFor="let task of completed; index as i;">
                 <li></li>
             </ul>
+        </div>
         </div>
     </div>
     <div class="other-container">

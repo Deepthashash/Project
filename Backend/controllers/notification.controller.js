@@ -40,7 +40,7 @@ module.exports.insertNotification = (req, res) => {
   };
 
   module.exports.getAllNotificationsPerUser = (req,res) => {
-    Notification.find({$and:[{isSeen:false},{userId:req.body.userId}]}, (err,docs) => {
+    Notification.find({userId:req.body.userId}, (err,docs) => {
       if(!err){
           res.send(docs);
       } else {
@@ -50,7 +50,7 @@ module.exports.insertNotification = (req, res) => {
   };
 
   module.exports.getAllCommentNotifications = (req,res) => {
-    Notification.find({$and:[{isSeen:false},{type: "comment"}]}, (err,docs) => {
+    Notification.find({type: "comment"}, (err,docs) => {
       if(!err){
           res.send(docs);
       } else {

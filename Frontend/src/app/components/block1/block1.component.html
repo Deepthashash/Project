@@ -1,56 +1,67 @@
-
+<app-navigation></app-navigation>
+<div class="top-container">
+    <h1 style="margin-left:1%; font-weight: bold; color: #0275d8; background-color: aliceblue; width: fit-content;">Block 01</h1>
+</div>
 <div class="main-container">
     <div class="documents-container">
         <h2 style="text-align: center; font-weight: bold; color: #0275d8;">Documents</h2>
+        <div style="font-size: larger; font-weight: bold; color: #0275d8;">Overall Drawing</div>
+        <a style="color: black !important; margin-left: 3%;"  href="../../../assets/images/Overall.jpeg"><i class="far fa-file fa-2x"></i>&nbsp;Full view</a>
         <div class="xtra">
         <div class="drawings-container">
             <div style="font-size: larger; font-weight: bold; color: #0275d8;">Structural Drawings</div>
             <ul class="scroll">
-                <div *ngFor="let drawing of drawings; index as i;">
-                    <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                <div *ngFor="let drawing of structural_Drawings; index as i;">
+                    <li> <i class="far fa-file fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
                 </div>
             </ul>
         </div>
         <div class="drawings-container">
             <div style="font-size: larger; font-weight: bold; color: #0275d8;">Architectural Drawings</div>
             <ul class="scroll">
-                <div *ngFor="let drawing of drawings; index as i;">
-                    <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                <div *ngFor="let drawing of architectural_Drawings; index as i;">
+                    <li> <i class="far fa-file fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
                 </div>
             </ul>
         </div><div class="drawings-container">
             <div style="font-size: larger; font-weight: bold; color: #0275d8;">R/F Drawings</div>
             <ul class="scroll">
-                <div *ngFor="let drawing of drawings; index as i;">
-                    <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                <div *ngFor="let drawing of rf_Drawings; index as i;">
+                    <li> <i class="far fa-file fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
                 </div>
             </ul>
         </div><div class="drawings-container">
             <div style="font-size: larger; font-weight: bold; color: #0275d8;">MEP Drawings</div>
             <ul class="scroll">
-                <div *ngFor="let drawing of drawings; index as i;">
-                    <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
-                </div>
-            </ul>
-        </div><div class="drawings-container">
-            <div style="font-size: larger; font-weight: bold; color: #0275d8;">Site Instructions</div>
-            <ul class="scroll">
-                <div *ngFor="let drawing of drawings; index as i;">
-                    <li> <i class="fas fa-file-pdf fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                <div *ngFor="let drawing of mep_Drawings; index as i;">
+                    <li> <i class="far fa-file fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
                 </div>
             </ul>
         </div>
         <div class="drawings-container">
+            <div style="font-size: larger; font-weight: bold; color: #0275d8;">Site Instructions</div>
+            <ul class="scroll">
+                <div *ngFor="let drawing of site_Instructions; index as i;">
+                    <li> <i class="far fa-file fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                </div>
+            </ul>
+        </div> 
+        <div class="drawings-container">
             <div style="font-size: larger; font-weight: bold; color: #0275d8;">Method Statement</div>
-            <ul class="scroll" *ngFor="let task of completed; index as i;">
+            <ul class="scroll">
+                <div *ngFor="let drawing of method_Statement; index as i;">
+                    <li> <i class="far fa-file fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                </div>
             </ul>
         </div>
         <div class="drawings-container">
             <div style="font-size: larger; font-weight: bold; color: #0275d8;">Any Other</div>
-            <ul class="scroll" *ngFor="let task of completed; index as i;">
-                <li></li>
+            <ul class="scroll">
+                <div *ngFor="let drawing of other; index as i;">
+                    <li> <i class="far fa-file fa-2x"></i>&nbsp; &nbsp;<a href="{{drawing.file}}">{{drawing.fileName}}</a></li>
+                </div>
             </ul>
-        </div>
+        </div>       
         </div>
     </div>
     <div class="other-container">
@@ -61,7 +72,7 @@
                     <div *ngFor="let task of onGoing; index as i;">
                         <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
                             <div class="card-body" style="padding: 1.8% !important;display: flex;">
-                                <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.taskName}}</li> &nbsp;<p class="pending" *ngIf="task.isCompleted">Approval pending</p>
+                                <p class="card-title" style="font-size:18px; font-weight: bolder; width: 75%;">{{task.taskName}}</p> &nbsp;<p class="pending" *ngIf="task.isCompleted" >Approval pending</p>
                               </div>
                         </div> 
                     </div>               
@@ -87,7 +98,7 @@
                     <div *ngFor="let task of comments; index as i;">
                         <div class="card text-white bg-primary todoCard" style="margin-bottom: 1%;" (click)="showComment(task._id)">
                             <div class="card-body" style="padding: 1.8% !important;display: flex;">
-                                <p class="card-title" style="font-size:18px; font-weight: bolder;">{{task.commentName}}</p>
+                                <p class="card-title" style="font-size:18px; font-weight: bolder;">{{task.comment}}</p>
                               </div>
                         </div> 
                     </div>               

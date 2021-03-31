@@ -7,7 +7,7 @@
 
     .documents-container{
         background-color: #ffffff;
-        height:95vh;
+        height:98vh;
         width: 37%;
         margin-right: auto;
         margin-left: 1%;
@@ -16,10 +16,16 @@
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         padding: 1%;
 
+        .xtra{
+            overflow-y: auto;
+            scroll-behavior: smooth;  
+            height: 87vh; 
+        }
+
         .drawings-container{
             background-color: #ffffff;
             width: 98%;
-            height: 27vh;
+            height: 25vh;
             margin: 1%;
             // border-radius: 20px;
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -27,7 +33,7 @@
             .scroll{
                 overflow-y: auto;
                 scroll-behavior: smooth;  
-                height: 19vh; 
+                height: 20vh; 
             }
         }
         .rfi-container{
@@ -61,7 +67,7 @@
     }
     .other-container{        
         background-color: rgb(151, 151, 150);
-        height:95vh;
+        height:97.75vh;
         width: 60%;
         margin-left: auto;
         margin-top: 0.5%;
@@ -70,7 +76,7 @@
         .todo-container{
             width: 100%;
             background-color: #ffffff;
-            height: 49.5%;
+            height: 49.4%;
             // border-radius: 20px;
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
             padding: 1%;
@@ -109,7 +115,7 @@
         .comments-container{
             width: 100%;
             background-color: #ffffff;
-            height: 49.5%;
+            height: 49.4%;
             margin-top: 1%;
             // border-radius: 20px;
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);

@@ -37,10 +37,16 @@ export class Block1Component implements OnInit {
   onGoing = [];
   completed = [];
   comments = [];
+  
   files = [];
-  drawings = [];
-  rfi = [];
+  structural_Drawings = [];
+  architectural_Drawings = [];
+  rf_Drawings = [];
+  mep_Drawings = [];
   other = [];
+  site_Instructions = [];
+  method_Statement = [];
+
   user: User;
 
   showDetails(id){
@@ -100,10 +106,18 @@ export class Block1Component implements OnInit {
 
   change(files: File[]){
     files.forEach(element => {
-      if(element.category === "Drawings"){
-        this.drawings.push(element);
-      }else if(element.category === "rfi"){
-        this.rfi.push(element);
+      if(element.category === "Structural Drawings"){
+        this.structural_Drawings.push(element);
+      }else if(element.category === "Architectural Drawings"){
+        this.architectural_Drawings.push(element);
+      }else if(element.category === "R/F Drawings"){
+        this.rf_Drawings.push(element);
+      }else if(element.category === "MEP Drawings"){
+        this.mep_Drawings.push(element);
+      }else if(element.category === "Site Instructions"){
+        this.site_Instructions.push(element);
+      }else if(element.category === "Method Statement"){
+        this.method_Statement.push(element);
       }else{
         this.other.push(element);
       }

@@ -66,13 +66,13 @@
     display: flex;
 
     .todo{
-        width: 49%;
-        height: 100%
+        width: 100%;
+        // height: 100%
     }
 
     .completed{
         width: 49%;
-        height: 100%
+        // height: 100%
     }
 
     .cards{
@@ -86,9 +86,9 @@
             padding-top: 8px;
 
             .pending {
-                position: absolute;
-                margin-left: 150px;
-                margin-right: auto;
+                position: relative;
+                margin-left: auto;
+                margin-right: 1%;
                 color: #fa9907;
                 font-weight: 1000;
             }

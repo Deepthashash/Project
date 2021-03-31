@@ -66,7 +66,7 @@ export class AddComponent implements OnInit {
           _id: "",
           taskId: res._id,
           isSeen: false,
-          title: "New Task",
+          title: res.taskName,
           userId: formDetails.userId1,
           type: "task"  
         } 

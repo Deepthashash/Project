@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { EventEmitterService } from 'src/app/services/event-emitter.service';
 import { TaskService } from 'src/app/services/task.service';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { ViewComponent } from '../tasks/view/view.component';
@@ -71,7 +70,7 @@ export class HomeComponent implements OnInit {
   }
 
   images = [
-    {path: '../../../assets/images/construction-site-1.jpg'},
+    {path: '../../../assets/images/Overall.jpeg'},
     {path: '../../../assets/images/construction-site-2.jpg'},
     {path: '../../../assets/images/construction-site-3.jpg'}
   ]

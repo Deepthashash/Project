@@ -1,4 +1,4 @@
-
+<app-navigation></app-navigation>
 <div style="display: flex;">
 <div class="containerx">
   <h1 class="text-center mt-5 mb-2" style="font-weight: bold;">Profile</h1>
@@ -50,7 +50,7 @@
             <div *ngFor="let task of onGoing; index as i;">
                 <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
                     <div class="card-body" style="padding: 1.8% !important;display: flex;">
-                        <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.taskName}}</li> &nbsp;<p class="pending" *ngIf="task.isCompleted">Approval pending</p>
+                        <li class="card-title" style="font-size:18px; font-weight: bolder; width: 75%;">{{task.taskName}}</li> &nbsp;<p class="pending" *ngIf="task.isCompleted">Approval pending</p>
                       </div>
                 </div> 
             </div>               
@@ -63,9 +63,9 @@
       <h2 style=" font-weight: bold; color: #0275d8;">Completed</h2>
       <div class="container cards" style="margin-top: 1%;">
           <div *ngFor="let task of completed; index as i;">
-              <div class="card text-white bg-primary todoCard" (click)="showDetails(task.taskId)">
+              <div class="card text-white bg-primary todoCard" (click)="showDetails(task._id)">
                   <div class="card-body" style="padding: 1.8% !important;display: flex;">
-                      <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.title}}</li>
+                      <li class="card-title" style="font-size:18px; font-weight: bolder;">{{task.taskName}}</li>
                     </div>
               </div> 
           </div>               

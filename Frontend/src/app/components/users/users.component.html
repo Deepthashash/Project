@@ -1,3 +1,4 @@
+<app-navigation></app-navigation>
 <div class="main-container">
     <h1 style="color: #0275d8;font-weight: bold;">Users</h1>
     <table>
@@ -7,16 +8,94 @@
         <th>Email</th>
         <th>Designation</th>
         <th>Actions</th>
-        <tr *ngFor="let user of users; index as i;">
-            <td>{{user.firstName}}</td>
-            <td>{{user.lastName}}</td>
-            <td>{{user.mobileNumber}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.userType}}</td>
+        <tr>
+            <td>Kasun</td>
+            <td>Lakmal</td>
+            <td>0712968789</td>
+            <td>kasun@gmail.com</td>
+            <td>Project Manager(Admin)</td>
             <td>
                 <div style="display: flex;margin-left: 25%;">
-                    <button class="btn btn-warning" (click)="edit(user._id)" ><i class="fas fa-edit" style="color: black;"></i></button>
-                    <button style="margin-left: 5%;" class="btn btn-danger" (click)="delete(user._id)" ><i class="fas fa-trash-alt" style="color: black;"></i></button>
+                    <button class="btn btn-warning" (click)="edit(1)" ><i class="fas fa-edit" style="color: black;"></i></button>
+                    <button style="margin-left: 5%;" class="btn btn-danger" (click)="delete(1)" ><i class="fas fa-trash-alt" style="color: black;"></i></button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Niroshan</td>
+            <td>Jayasankha</td>
+            <td>0772968789</td>
+            <td>niroshan@gmail.com</td>
+            <td>Technical Supervisor(Admin)</td>
+            <td>
+                <div style="display: flex;margin-left: 25%;">
+                    <button class="btn btn-warning" (click)="edit(1)" ><i class="fas fa-edit" style="color: black;"></i></button>
+                    <button style="margin-left: 5%;" class="btn btn-danger" (click)="delete(1)" ><i class="fas fa-trash-alt" style="color: black;"></i></button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Supun</td>
+            <td>Attanayake</td>
+            <td>0752268789</td>
+            <td>supun@gmail.com</td>
+            <td>Stakeholder</td>
+            <td>
+                <div style="display: flex;margin-left: 25%;">
+                    <button class="btn btn-warning" (click)="edit(1)" ><i class="fas fa-edit" style="color: black;"></i></button>
+                    <button style="margin-left: 5%;" class="btn btn-danger" (click)="delete(1)" ><i class="fas fa-trash-alt" style="color: black;"></i></button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Sankha</td>
+            <td>Rathnayake</td>
+            <td>0785568789</td>
+            <td>sankha@gmail.com</td>
+            <td>Consultant</td>
+            <td>
+                <div style="display: flex;margin-left: 25%;">
+                    <button class="btn btn-warning" (click)="edit(1)" ><i class="fas fa-edit" style="color: black;"></i></button>
+                    <button style="margin-left: 5%;" class="btn btn-danger" (click)="delete(1)" ><i class="fas fa-trash-alt" style="color: black;"></i></button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Deeptha</td>
+            <td>Wickramasingha</td>
+            <td>0711329267</td>
+            <td>deeptha@gmail.com</td>
+            <td>Site Engineer</td>
+            <td>
+                <div style="display: flex;margin-left: 25%;">
+                    <button class="btn btn-warning" (click)="edit(1)" ><i class="fas fa-edit" style="color: black;"></i></button>
+                    <button style="margin-left: 5%;" class="btn btn-danger" (click)="delete(1)" ><i class="fas fa-trash-alt" style="color: black;"></i></button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Mangala</td>
+            <td>Nilnuwan</td>
+            <td>0762868789</td>
+            <td>mangala@gmail.com</td>
+            <td>Site Supervisor</td>
+            <td>
+                <div style="display: flex;margin-left: 25%;">
+                    <button class="btn btn-warning" (click)="edit(1)" ><i class="fas fa-edit" style="color: black;"></i></button>
+                    <button style="margin-left: 5%;" class="btn btn-danger" (click)="delete(1)" ><i class="fas fa-trash-alt" style="color: black;"></i></button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Nimal</td>
+            <td>Rajakaruna</td>
+            <td>0772978789</td>
+            <td>nimal@gmail.com</td>
+            <td>Site Contractor</td>
+            <td>
+                <div style="display: flex;margin-left: 25%;">
+                    <button class="btn btn-warning" (click)="edit(1)" ><i class="fas fa-edit" style="color: black;"></i></button>
+                    <button style="margin-left: 5%;" class="btn btn-danger" (click)="delete(1)" ><i class="fas fa-trash-alt" style="color: black;"></i></button>
                 </div>
             </td>
         </tr>

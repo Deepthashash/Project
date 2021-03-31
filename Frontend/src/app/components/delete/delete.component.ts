@@ -35,7 +35,8 @@ export class DeleteComponent implements OnInit {
       this.taskService.deleteTask(this.id).subscribe(
         (res) => {
           console.log("Success");
-          this.router.navigate(['/admin']);
+          // this.router.navigate(['/admin']);
+          location.reload();
         },
         (err) => {
           console.log(err);
@@ -45,7 +46,8 @@ export class DeleteComponent implements OnInit {
       this.authService.deleteUser(this.id).subscribe(
         (res) => {
           console.log("Success");
-          this.router.navigate(['/admin']);
+          // this.router.navigate(['/admin']);
+          location.reload();
         },
         (err) => {
           console.log(err);
@@ -55,7 +57,8 @@ export class DeleteComponent implements OnInit {
       this.fileService.deleteFile(this.id).subscribe(
         (res) => {
           console.log("Success");
-          this.router.navigate(['/admin']);
+          // this.router.navigate(['/admin']);
+          location.reload();
         },
         (err) => {
           console.log(err);

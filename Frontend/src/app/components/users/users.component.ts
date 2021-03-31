@@ -4,6 +4,8 @@ import { Task } from 'src/app/models/task.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { TaskService } from 'src/app/services/task.service';
 import { DeleteComponent } from '../delete/delete.component';
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
 @Component({
   selector: 'users-summary',
@@ -56,7 +58,7 @@ export class UsersComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "50%";
     dialogConfig.data ={id}
-    // this.dialog.open(EditTaskComponent, dialogConfig);
+    this.dialog.open(EditUserComponent, dialogConfig);
   }
 
 }

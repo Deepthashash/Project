@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterUserComponent implements OnInit {
   errorMessage = 'temp';
   successMessage = 'temp';
-  types = ["Engineer","ProjectManager","Supervisor"]
+  types = ["Project Manager(Admin)","Technical Supervisor(Admin)","Stakeholder","Consultant","Site Engineer","Site Engineer","Site Contractor"]
 
   RegisterForm = this.formBuilder.group({
     profilePicture: ['', Validators.required],

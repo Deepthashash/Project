@@ -1,13 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/home">Project Handler</a>
+    <a class="navbar-brand" href="/home">
+      <img src="../../../assets/images/logo2.png" width="35" height="35" alt="" style="background-color: white;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <span class="navbar-text" style="color: azure !important;">
+        Quick Lands(pvt) Ltd <br>
+        Colombo 05 <br>
+        +94 112 355 355  
+      </span>
+      <ul class="navbar-nav mr-auto" style="margin-left: 25%;">
         <li class="nav-item active">
-          <button class="btn btn-primary" (click)="openProfile()">Profile <span class="sr-only">(current)</span></button>
+          <a class="nav-link" style="font-size: 120% !important;" href="/home">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" (click)="openProfile()" style="font-size: 120% !important;">Profile <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <!-- <app-notifications style="margin-top: .65%; position: absolute;"></app-notifications> -->
@@ -19,12 +28,31 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <div *ngFor="let notification of notifications; index as i;">
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" (click)="openNotification(notification)">{{notification.title}}</a>
+              <div *ngIf="notification.isSeen; else elseBlock">
+                <a class="dropdown-item" (click)="openNotification(notification)">{{notification.title}}</a>
+              </div>
+              <ng-template  #elseBlock>
+                <a class="dropdown-item" style="background-color: #0275d8 !important;" (click)="openNotification(notification)">{{notification.title}}</a>
+              </ng-template>
             </div>
           </div>
-        </li>        
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="font-size: 120% !important;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">            
+            Contacts
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item">Kasun Lakmal : Project Manager : 0712968789 : kasun@gmail.com </a>
+            <a class="dropdown-item" style="background-color: rgba(128, 128, 128, 0.384);">Niroshan Jayasankha : Technical Supervisor : 0772968789 : niroshan@gmail.com </a>
+            <a class="dropdown-item">Supun Attanayake : Stakeholder : 0752268789 : supun@gmail.com</a>
+            <a class="dropdown-item" style="background-color: rgba(128, 128, 128, 0.384);">Sankha Rathnayake : Consultant : 0785568789 : sankha@gmail.com</a>
+            <a class="dropdown-item">Deeptha Wickramasingha : Site Engineer : 0711329267 : deeptha@gmail.com</a>
+            <a class="dropdown-item" style="background-color: rgba(128, 128, 128, 0.384);">Mangala Nilnuwan : Site Supervisor : 0762868789 : mangala@gmail.com</a>
+            <a class="dropdown-item">Nimal Rajakaruna : Site Contractor : 0772978789 : nimal@gmail.com</a>          
+          </div>
+        </li>       
       </ul>
-      <form class="form-inline my-2 my-lg-0" *ngIf="user._id">
+      <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         &nbsp;

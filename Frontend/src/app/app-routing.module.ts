@@ -29,77 +29,77 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","Supervisor","ProjectManager"] },
+    data: { type: ["Project Manager(Admin)","Technical Supervisor(Admin)","Stakeholder","Consultant","Site Engineer","Site Engineer","Site Contractor","Site Supervisor"] },
   },
 
   {
     path: 'profile',
     component: ProfileComponent,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","Supervisor","ProjectManager"] },
+    data: { type: ["Stakeholder","Consultant","Site Engineer","Site Engineer","Site Contractor","Site Supervisor"] },
   },
 
   {
     path: 'admin',
     component: AdminComponent,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","ProjectManager"] },
+    data: { type: ["Project Manager(Admin)","Technical Supervisor(Admin)"] },
   },
 
   {
     path: 'block1',
     component: Block1Component,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","Supervisor","ProjectManager"]},
+    data: { type: ["Project Manager(Admin)","Technical Supervisor(Admin)","Stakeholder","Consultant","Site Engineer","Site Engineer","Site Contractor","Site Supervisor"]},
   },
 
   {
     path: 'block2',
     component: Block2Component,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","Supervisor","ProjectManager"]},
+    data: { type: ["Project Manager(Admin)","Technical Supervisor(Admin)","Stakeholder","Consultant","Site Engineer","Site Engineer","Site Contractor","Site Supervisor"]},
   },
 
   {
     path: 'block3',
     component: Block3Component,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","Supervisor","ProjectManager"]},
+    data: { type: ["Project Manager(Admin)","Technical Supervisor(Admin)","Stakeholder","Consultant","Site Engineer","Site Engineer","Site Contractor","Site Supervisor"]},
   },
 
   {
     path: 'block1Summary',
     component: SummaryComponent,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","ProjectManager"]},
+    data: { type: ["Project Manager(Admin)","Technical Supervisor(Admin)"]},
   },
 
   {
     path: 'block2Summary',
     component: Summary2Component,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","ProjectManager"]},
+    data: { type: ["Project Manager(Admin)","Technical Supervisor(Admin)"]},
   },
 
   {
     path: 'block3Summary',
     component: Summary3Component,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","ProjectManager"]},
+    data: { type: ["Project Manager(Admin)","Technical Supervisor(Admin)"]},
   },
 
   {
     path: 'users',
     component: UsersComponent,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","ProjectManager"]},
+    data: { type: ["Project Manager(Admin)","Technical Supervisor(Admin)"]},
   },
 
   {
     path: 'files',
     component: FilesComponent,
     canActivate: [RouteGuardService],
-    data: { type: ["Engineer","ProjectManager"]},
+    data: { type: ["Project Manager(Admin)","Technical Supervisor(Admin)"]},
   },
 
   // {

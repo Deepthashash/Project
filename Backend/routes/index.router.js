@@ -18,6 +18,7 @@ router.post("/getUser", jwtHelper.verifyJwtToken, ctrlUser.getUser);
 router.post("/getUsers", jwtHelper.verifyJwtToken, ctrlUser.getUsers);
 router.get("/getAllUsers", ctrlUser.getAllUsers);
 router.put("/updateUser", ctrlUser.updateUser);
+router.put("/updateUserAdmin", ctrlUser.updateUserAdmin);
 router.delete("/deleteUser/:id", ctrlUser.deleteUser);
 
 

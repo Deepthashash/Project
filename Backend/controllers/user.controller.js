@@ -98,6 +98,25 @@ module.exports.updateUser = (req,res) => {
   });
 };
 
+module.exports.updateUserAdmin = (req,res) => {
+  User.findByIdAndUpdate(req.body.id,
+    {
+      profilePicture : req.body.profilePicture,
+      firstName : req.body.firstName,
+      lastName : req.body.lastName,
+      mobileNumber : req.body.mobileNumber,
+      email: req.body.email,
+      userType:req.body.userType
+    },
+    {new:true}, (err,docs) => {
+    if(!err){
+        res.send(docs);
+    } else {
+      res.send("Error in retrieving: " + JSON.stringify(err, undefined, 2));
+    } 
+  });
+};
+
 module.exports.deleteUser = (req, res) => {
   User.findByIdAndDelete(req.params.id, (err, docs) => {
     if (docs) {
